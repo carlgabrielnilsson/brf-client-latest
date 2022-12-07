@@ -14,6 +14,23 @@ import { MatButtonModule } from '@angular/material/button';
 import { HomeComponent } from './_components/home/home.component';
 import { FaqComponent } from './_components/faq/faq.component';
 import { FeedbackComponent } from './_components/feedback/feedback.component';
+import { ChartModule } from 'angular-highcharts';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCardModule } from '@angular/material/card'
+import { MatInputModule } from '@angular/material/input'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatSelectModule } from '@angular/material/select'
+import { MatCheckboxModule } from '@angular/material/checkbox'
+import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatSliderModule } from '@angular/material/slider';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatProgressBarModule } from '@angular/material/progress-bar'
+import { NgxPrintElementModule } from 'ngx-print-element';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +47,24 @@ import { FeedbackComponent } from './_components/feedback/feedback.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    ChartModule,
+    FormsModule,
+    HttpClientModule,
+    MatExpansionModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatSnackBarModule,
+    MatSliderModule,
+    MatStepperModule,
+    MatRadioModule,
+    MatProgressBarModule,
+    NgxPrintElementModule,
+    MatTooltipModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

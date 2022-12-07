@@ -9,9 +9,56 @@ body {
 
 :root {
     --sw-primary: #ff9100;
+    --sw-light-bg: rgb(241, 241, 241);
     --icon-light: white;
     --font-light: white; 
+
+    /*Background Colors*/
+    --sw-bg-primary: #ff9026;
+    --sw-bg-primary-light: #ffa34d;
+    --sw-bg-white: white;
+    --sw-bg-lighgrey: #f2f2f2;
+    --sw-bg-beige: #f2f2f2;
+
+    /*selected*/
+    --sw-selected-white: #ffffff;
+
+     
+
+    /*Text colors*/
+    --sw-txt-white: rgb(255, 255, 255);
+    --sw-txt-dark: rgb(53, 43, 43);
+   
+       /*Padding1*/
+    --sw-pd1: 0.2rem;
+    --sw-pd2: 0.4rem;
+    --sw-pd3: 0.6rem;
+    --sw-pd4: 0.9rem;
+    --sw-pd5: 1.2rem;
+
+    /*Padding1*/
+    --sw-tran1: all 0.1s ease;
+    --sw-tran2: all 0.2s ease;
+    --sw-tran3: all 0.3s ease;
+    --sw-tran5: all 0.5s ease;
+    --sw-tran1s: all 1s ease;
+
+    /*Border Radius*/
+    --sw-br1: 0.2rem;
+    --sw-br2: 0.4rem;
+    --sw-br3: 0.6rem;
+    --sw-br4: 0.9rem;
+    --sw-br50percent: 50%;
+
+    /*Border Radius*/
+    --sw-bs1-sidenav: 0.03rem 0 0.3rem 0 #eeebe8;
+    --sw-bs-mini: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    --sw-bs-medium: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    --sw-bs-btr: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    --sw-bs-large: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    --sw-bs-reverse: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
+
 
 mat-icon {
     color: var(--icon-light);

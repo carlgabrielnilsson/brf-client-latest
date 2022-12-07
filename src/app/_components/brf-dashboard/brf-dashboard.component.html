@@ -1,61 +1,205 @@
-<div class="container-fluid h-100">
+<div class="container-fluid h-100 p-4">
 
     <div id="toolbar">
-        <button mat-raised-button>
-            <mat-icon>calculate</mat-icon>
-            Ny Kalkyl
-        </button>
-        <span class="spacer"></span>
-        <button mat-icon-button>
-            <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-icon-button>
-            <mat-icon>share</mat-icon>
-        </button>
+        <div class="toolbar-content">
+            <button mat-raised-button>
+                <mat-icon>calculate</mat-icon>
+                Ny Kalkyl
+            </button>
+            <span class="spacer"></span>
+            <button mat-raised-button>
+                <mat-icon>save</mat-icon>
+                Spara PDF
+            </button>
+            <button mat-raised-button>
+                <mat-icon>share</mat-icon>
+            </button>
+        </div>
     </div>
 
 
     <div id="card-group-one">
-        <p>1</p>
-        <!--div class="sw-card">
-            <div class="card-header">
-                <div class="card-content">
-    
+        <div class="sw-card" id="special-border-radius">
+            <div class="card-content">
+                <div class="card-header">
+                    <h2>Ränta / Månadsavgift</h2>
+                    <button class="tooltip-button" mat-mini-fab (click)="tooltip1.show()"
+                        aria-label="Show tooltip on the button at the end of this section"
+                        class="example-action-button">
+                        <mat-icon>
+                            question_mark
+                        </mat-icon>
+                    </button>
+                    <div #tooltip1="matTooltip"
+                        matTooltip="Lägenhetens andelstal * (Bostadsrättsföreningens lån * 0.01) / 12"
+                        matTooltipPosition="above" matTooltipClass="tooltip" class="tooltip">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="display-value">
+                        <div style="display: flex; flex-direction: column;">
+                            <h1 class="bold-text">{{responseData?.interestRateOnePercent | currency: 'kr/mån '}}
+                            </h1>
+                            <span>
+                                <hr>
+                            </span>
+                            <h3 class="bold-text">
+                                {{whatIfInterestIncrease | currency: 'kr/mån '}}
+                                <h3 #hidden class="bold-text">0 kr/mån</h3>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="display-risk">
+                    </div>
+                    <div class="slider">
+                        <div class="" style="display: flex; width: 100%; justify-content: space-between;">
+                            <div>
+                                <label id="example-name-label" class="example-name-label bold-text2">Ränta</label>
+                            </div>
+                            <div>
+                                <label class="example-value-label bold-text2">{{value / 100 |
+                                    percent}}</label>
+                            </div>
+                        </div>
+                        <mat-slider class="example-margin" [disabled]="disabled" [max]="max" [min]="min" [step]="step"
+                            [showTickMarks]="showTicks">
+
+                            <input style="height: 40px !important;" #sliderValue matSliderThumb [(ngModel)]="value"
+                                [value]="value" (valueChange)="whatIfInterestIncr()">
+                        </mat-slider>
+                    </div>
                 </div>
             </div>
-        </div-->
+        </div>
     </div>
 
     <div id="card-group-two">
-        <p>2</p>
-        <!--div class="sw-card">
-            <div class="card-header">
-                <div class="card-content">
-    
+        <div class="sw-card-ex-bg">
+            <div class="card-content">
+                <div class="card-header">
+                    <h2>BRF resultat / bouyta</h2>
+                    <button mat-mini-fab>
+                        <mat-icon>question_mark</mat-icon>
+                    </button>
+                </div>
+
+                <div class="card-body">
+                    iam the body
                 </div>
             </div>
-        </div-->
+        </div>
+        <div class="sw-card-ex-bg">
+            <div class="card-content">
+                <div class="card-header">
+                    <h2>Andel av BRF Lån</h2>
+                    <button mat-mini-fab>
+                        <mat-icon>question_mark</mat-icon>
+                    </button>
+                </div>
+
+                <div class="card-body">
+                    iam the body
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="card-group-three">
-        <p>3</p>
-        <!--div class="sw-card">
-            <div class="card-header">
+
+        <div class="left p-3">
+            <div class="sw-card">
                 <div class="card-content">
-    
+                    <div class="card-header">
+                        <h2>Årsavgift / boyta</h2>
+                        <button mat-mini-fab>
+                            <mat-icon>question_mark</mat-icon>
+                        </button>
+                    </div>
+
+                    <div class="card-body">
+                        iam the body
+                    </div>
                 </div>
             </div>
-        </div-->
+
+            <div class="sw-card">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h2>Driftskostnad / boyta</h2>
+                        <button mat-mini-fab>
+                            <mat-icon>question_mark</mat-icon>
+                        </button>
+                    </div>
+
+                    <div class="card-body">
+                        iam the body
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right pt-3 pb-3 ">
+            <div class="sw-card">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h2>Andel av BRF sparande</h2>
+                        <button mat-mini-fab>
+                            <mat-icon>question_mark</mat-icon>
+                        </button>
+                    </div>
+
+                    <div class="card-body">
+                        iam the body
+                    </div>
+                </div>
+            </div>
+
+            <div class="sw-card">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h2>Andel av BRF Amorteringar</h2>
+                        <button mat-mini-fab>
+                            <mat-icon>question_mark</mat-icon>
+                        </button>
+                    </div>
+
+                    <div class="card-body">
+                        iam the body
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="card-group-four">
-        <p>4</p>
-        <!--div class="sw-card">
-            <div class="card-header">
-                <div class="card-content">
-    
+        <div class="sw-card">
+            <div class="card-content">
+                <div class="card-header">
+                    <h2>Andel kommersiella intäkter</h2>
+                    <button mat-mini-fab>
+                        <mat-icon>question_mark</mat-icon>
+                    </button>
+                </div>
+
+                <div class="card-body">
+                    <div class="chart-container">
+                        <div id="doughnut-chart" [chart]="doughnutChart"></div>
+                    </div>
+                </div>
+                <hr>
+                <div class="card-header">
+                    <h2>Risk</h2>
+                    <button mat-mini-fab>
+                        <mat-icon>question_mark</mat-icon>
+                    </button>
+                </div>
+
+                <div class="card-body">
+                    <div class="bottom">
+
+                    </div>
                 </div>
             </div>
-        </div-->
+        </div>
     </div>
 </div>
