@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { Chart } from 'angular-highcharts';
@@ -79,12 +79,12 @@ export class BrfDashboardComponent implements OnInit {
 
   //slider Options
   disabled = false;
-  max = 15;
-  min = 0;
   showTicks = false;
   step = 1;
-  thumbLabel = false;
+  thumbLabel = true;
   value = 1;
+
+  
 
   //Variables
   public responseData?: BrfParams;
@@ -101,6 +101,7 @@ export class BrfDashboardComponent implements OnInit {
 
   constructor(
     private brfService: BrfCalculatorService,
+    private renderer: Renderer2
   ) { }
 
   ngOnInit(): void {
@@ -305,6 +306,28 @@ export class BrfDashboardComponent implements OnInit {
     else {
       this.radio1 === "Nej"
     }
+  }
+
+  formatLabel(value: number | null) {
+    if (!value) {
+      return 0;
+    }
+
+    if (value >= 1000) {
+      return Math.round(value / 1000) + 'k' + 'Im a very long label';
+    }
+
+    return value;
+  }
+
+  public hoverSlider() {
+    const thumbEle = document.querySelector('div.mat-slider-thumb-label');
+    this.renderer.setStyle(thumbEle, 'transform', 'rotate(0)');
+  }
+
+  public blurSlider() {
+    const thumbEle = document.querySelector('div.mat-slider-thumb-label');
+    this.renderer.removeStyle(thumbEle, 'transform');
   }
 
 

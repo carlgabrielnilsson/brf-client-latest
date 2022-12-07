@@ -15,6 +15,22 @@ hr {
     border: 5px solid green;
 }
 
+.bold-text-big {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.bold-text-small {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.text {
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
 #toolbar {
     grid-area: toolbar;
     height: 53px;
@@ -69,6 +85,62 @@ hr {
     margin-top: 10px;
 }
 
+#card-group-one .card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#card-group-one .card-body .slider {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    height: 90%;
+    background-color: var(--sw-light-bg);
+    border-radius: var(--sw-br4);
+    margin-right: 4px;
+    box-shadow: var(--sw-bs-reverse);
+}
+
+mat-slider {
+    height: 90%;
+}
+
+mat-slider input {
+    width: 20px !important;
+}
+
+::ng-deep .mat-slider-thumb-label {
+    border-radius: 8px 8px !important;
+    display: flex !important;
+    flex: 1 0 100%;
+    flex-direction: row;
+    padding-left: 6px;
+    padding-right: 6px;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    left: 20px !important;
+    width: unset !important;
+    background-color: var(--sw-bg-primary) !important;
+}
+
+::ng-deep .mat-slider-thumb-label-text {
+    transform: rotate(0) !important;
+}
+
+#card-group-one .card-body .display-value {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: var(--sw-pd4);
+    margin: 10px;
+    height: 90%;
+    width: 100%;
+}
+
 #card-group-two {
     grid-area: group-two;
     display: flex;
@@ -85,7 +157,6 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid lawngreen;
     border-radius: var(--sw-br4);
 }
 
@@ -109,7 +180,6 @@ hr {
     display: grid;
     height: 100%;
     grid-area: group-four;
-    border: 1px solid lawngreen;
     border-radius: var(--sw-br4);
     margin-bottom: 0px;
 }
@@ -141,7 +211,6 @@ hr {
     justify-content: space-between;
     height: fit-content;
     width: 100%;
-    border: 1px solid black;
     padding: var(--sw-pd2);
 }
 
@@ -169,4 +238,3 @@ hr {
     border-radius: var(--sw-br4);
     padding: var(--sw-pd4);
 }
-

@@ -7,7 +7,7 @@
                 Ny Kalkyl
             </button>
             <span class="spacer"></span>
-            <button mat-raised-button>
+            <button mat-raised-button type="button" (click)="onPrint()">
                 <mat-icon>save</mat-icon>
                 Spara PDF
             </button>
@@ -23,49 +23,44 @@
             <div class="card-content">
                 <div class="card-header">
                     <h2>Ränta / Månadsavgift</h2>
-                    <button class="tooltip-button" mat-mini-fab (click)="tooltip1.show()"
-                        aria-label="Show tooltip on the button at the end of this section"
-                        class="example-action-button">
+                    <button mat-mini-fab>
                         <mat-icon>
                             question_mark
                         </mat-icon>
                     </button>
-                    <div #tooltip1="matTooltip"
-                        matTooltip="Lägenhetens andelstal * (Bostadsrättsföreningens lån * 0.01) / 12"
-                        matTooltipPosition="above" matTooltipClass="tooltip" class="tooltip">
-                    </div>
                 </div>
                 <div class="card-body">
-                    <div class="display-value">
-                        <div style="display: flex; flex-direction: column;">
-                            <h1 class="bold-text">{{responseData?.interestRateOnePercent | currency: 'kr/mån '}}
-                            </h1>
-                            <span>
-                                <hr>
-                            </span>
-                            <h3 class="bold-text">
-                                {{whatIfInterestIncrease | currency: 'kr/mån '}}
-                                <h3 #hidden class="bold-text">0 kr/mån</h3>
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="display-risk">
-                    </div>
-                    <div class="slider">
-                        <div class="" style="display: flex; width: 100%; justify-content: space-between;">
-                            <div>
-                                <label id="example-name-label" class="example-name-label bold-text2">Ränta</label>
-                            </div>
-                            <div>
-                                <label class="example-value-label bold-text2">{{value / 100 |
-                                    percent}}</label>
-                            </div>
-                        </div>
-                        <mat-slider class="example-margin" [disabled]="disabled" [max]="max" [min]="min" [step]="step"
-                            [showTickMarks]="showTicks">
 
-                            <input style="height: 40px !important;" #sliderValue matSliderThumb [(ngModel)]="value"
-                                [value]="value" (valueChange)="whatIfInterestIncr()">
+                    <div class="display-value">
+                        <div class="text" style="text-align: center;">
+                            <p>Om räntan på föreningens lån ökar med <b>1%</b> ökar din månadsavgift med:</p>
+                            <h1 class="bold-text-big">{{responseData?.interestRateOnePercent | currency: 'kr/mån '}}
+                            </h1>
+                            <h3 #hidden class="bold-text-big">0 kr/mån</h3>
+                        </div>
+                        <hr width="100%">
+                        <div class="text" style="text-align: center;">
+                            <p>Men vad skulle hända med din månadsavgift din förenings ränta ökade med
+                                <b>{{value}}%</b> ta reda på det genom att dra slidern till höger:
+                            </p>
+                            <h3 class="bold-text-big">
+                                {{whatIfInterestIncrease | currency: 'kr/mån '}}
+                            </h3>
+                            <h3 #hidden class="bold-text-big">0 kr/mån</h3>
+                            <div class="display-risk"></div>
+                        </div>
+                    </div>
+
+                    <div class="slider">
+                        <div>
+                            <label class="bold-text-small">{{value / 100 |
+                                percent}}</label>
+                        </div>
+                        <mat-slider id="interest-slider" class="example-margin" thumbLabel [displayWith]="formatLabel"
+                            tickInterval="1" max="20" min="1" (focusin)="hoverSlider()" (focusout)="blurSlider()"
+                            [vertical]="true" [step]="step">
+                            <input #sliderValue matSliderThumb [(ngModel)]="value" [value]="value"
+                                (valueChange)="whatIfInterestIncr()">
                         </mat-slider>
                     </div>
                 </div>
@@ -77,7 +72,7 @@
         <div class="sw-card-ex-bg">
             <div class="card-content">
                 <div class="card-header">
-                    <h2>BRF resultat / bouyta</h2>
+                    <h2>BRF resultat / boyta</h2>
                     <button mat-mini-fab>
                         <mat-icon>question_mark</mat-icon>
                     </button>
@@ -117,7 +112,23 @@
                     </div>
 
                     <div class="card-body">
-                        iam the body
+                        <div #ratioAnnualFeeSqm class="display-value">
+                            <h1 class="bold-text">{{responseData?.annualFeeSqm | currency: 'kr/kvm '}}
+                                <h3 #hidden1 class="bold-text">0 kr/kvm </h3>
+                            </h1>
+                        </div>
+                        <div class="display-risk">
+                            <mat-progress-bar mode="determinate" color='{{progressAnnualFeeSqmColor}}'
+                                value='{{progressAnnualFeeSqm}}'>
+                            </mat-progress-bar>
+                            <h3 #riskTextAnnualFeeSqm class="risk-limit-text"></h3>
+                            <ul class="no-bullets">
+                                <li> ≤325 kr/kvm (låg)</li>
+                                <li> >325≤650 kr/kvm (låg till måttlig)</li>
+                                <li> >650≤900 kr/kvm (måttlig till hög)</li>
+                                <li> >900 kr/kvm (hög)</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

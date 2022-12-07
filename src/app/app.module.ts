@@ -28,7 +28,6 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatProgressBarModule } from '@angular/material/progress-bar'
-import { NgxPrintElementModule } from 'ngx-print-element';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
@@ -62,7 +61,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatStepperModule,
     MatRadioModule,
     MatProgressBarModule,
-    NgxPrintElementModule,
     MatTooltipModule
 
   ],
