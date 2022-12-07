@@ -1,10 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { Chart } from 'angular-highcharts';
-import { BrfParams } from 'src/app/_models/brf-params';
 import { BrfCalculatorService } from 'src/app/_services/brf-calculator.service';
+import { BrfParams } from '../../_models/brf-params';
 import { brfDoughnutChartOptions } from './brf-doughnut-chart';
 
 
@@ -77,14 +77,14 @@ export class BrfDashboardComponent implements OnInit {
   @ViewChild('stepper') stepper!: MatStepper;
 
 
-
   //slider Options
   disabled = false;
+  max = 15;
+  min = 0;
   showTicks = false;
   step = 1;
-  thumbLabel = true;
+  thumbLabel = false;
   value = 1;
-  
 
   //Variables
   public responseData?: BrfParams;
@@ -101,7 +101,6 @@ export class BrfDashboardComponent implements OnInit {
 
   constructor(
     private brfService: BrfCalculatorService,
-    private renderer: Renderer2
   ) { }
 
   ngOnInit(): void {
@@ -308,28 +307,6 @@ export class BrfDashboardComponent implements OnInit {
     }
   }
 
-  formatLabel(value: number | null) {
-    if (!value) {
-      return 0;
-    }
-
-    if (value >= 1000) {
-      return Math.round(value / 1000) + 'k' + 'Im a very long label';
-    }
-
-    return value;
-  }
-
-  public hoverSlider() {
-    const thumbEle = document.querySelector('div.mat-slider-thumb-label');
-    this.renderer.setStyle(thumbEle, 'transform', 'rotate(0)');
-  }
-
-  public blurSlider() {
-    const thumbEle = document.querySelector('div.mat-slider-thumb-label');
-    this.renderer.removeStyle(thumbEle, 'transform');
-  }
-
 
   public config = {
     printMode: 'template-popup',
@@ -344,3 +321,28 @@ export class BrfDashboardComponent implements OnInit {
 
 
 }
+
+/*
+public formatLabel(value: number | null) {
+    if (!value) {
+      return 0;
+    }
+
+    if (value >= 15) {
+      return Math.round(value / 1000) + 'k' + 'Im a very long label';
+    }
+
+    return value;
+  }
+
+  public hoverSlider() {
+    const thumbEle = document.querySelector('div.mat-slider-thumb-label');
+    this.rendered.setStyle(thumbEle, 'transform', 'rotate(0)');
+  }
+
+  public blurSlider() {
+    const thumbEle = document.querySelector('div.mat-slider-thumb-label');
+    this.rendered.removeStyle(thumbEle, 'transform');
+  }
+
+*/
