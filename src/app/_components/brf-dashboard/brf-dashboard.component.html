@@ -2,7 +2,7 @@
 
     <div id="toolbar">
         <div class="toolbar-content">
-            <button mat-raised-button class="toolbar-buttons d-flex justify-content-between">
+            <button mat-raised-button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                 <mat-icon>calculate</mat-icon>
                 Ny Kalkyl
             </button>
@@ -336,6 +336,459 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Calculate Brf Modal -->
+    <div class="modal right fade" id="exampleModal2" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newCalculation">Brf Kalkyl</h5>
+                    <button mat-mini-fab type="button" color="warn" data-bs-dismiss="modal" aria-label="Close">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form #brfForm="ngForm" (ngSubmit)="onCalculateBrf(brfForm)">
+                        <mat-stepper orientation="vertical" linear #stepper>
+                            <mat-step>
+                                <ng-template matStepLabel>Försäkringar</ng-template>
+                                <div class="description">
+                                    <p>
+                                        Är bostadsrättsföreningens fastighet fullvärdeförsäkrad?
+                                    </p>
+                                </div>
+                                <mat-radio-group aria-label="Select an option">
+                                    <mat-radio-button #yes1 color="primary" value="Ja">Ja</mat-radio-button>
+                                    <mat-radio-button #no1 color="primary" value="Ja">Nej</mat-radio-button>
+                                </mat-radio-group>
+                                <div class="description">
+                                    <p>
+                                        Har bostadsrättsföreningen en ansvarsförsäkring för styrelsen
+                                    </p>
+                                </div>
+                                <mat-radio-group aria-label="Select an option">
+                                    <mat-radio-button #yes2 color="primary" value="Ja">Ja</mat-radio-button>
+                                    <mat-radio-button #no2 color="primary" value="Nej">Nej</mat-radio-button>
+                                </mat-radio-group>
+                                <div>
+                                    <button mat-button matStepperNext type="button">Nästa</button>
+                                    <button mat-button matStepperPrevious type="button">Tillbaka</button>
+                                </div>
+                            </mat-step>
+
+                            <mat-step>
+                                <ng-template matStepLabel>Mark & Upplåtelse</ng-template>
+                                <div class="description">
+                                    <p>Äger bostadsrättsföreningen marken</p>
+
+                                </div>
+                                <mat-radio-group aria-label="Select an option">
+                                    <mat-radio-button #yes3 color="primary" value="Ja">Ja</mat-radio-button>
+                                    <mat-radio-button #no3 color="primary" value="Nej">Nej</mat-radio-button>
+                                </mat-radio-group>
+
+                                <div class="description">
+                                    <p>Har föreningen tomträtt</p>
+
+                                </div>
+
+                                <mat-radio-group aria-label="Select an option">
+                                    <mat-radio-button #yes4 color="primary" value="Ja">Ja</mat-radio-button>
+                                    <mat-radio-button #no4 color="primary" value="Nej">Nej</mat-radio-button>
+                                </mat-radio-group>
+
+                                <div class="description">
+                                    <p>Finns en teknisk underhållsplan</p>
+                                </div>
+                                <mat-radio-group aria-label="Select an option">
+                                    <mat-radio-button #yes5 color="primary" value="Ja">Ja</mat-radio-button>
+                                    <mat-radio-button #no5 color="primary" value="Nej">Nej</mat-radio-button>
+                                </mat-radio-group>
+
+                                <div>
+                                    <button mat-button matStepperNext type="button">Nästa</button>
+                                    <button mat-button matStepperPrevious type="button">Tillbaka</button>
+                                </div>
+                            </mat-step>
+
+
+                            <mat-step id="apartment">
+                                <ng-template matStepLabel>Lägenheten</ng-template>
+                                <div class="description">
+                                    <p>
+                                        Vad är bostadsrättens andel i föreningen?
+                                    </p>
+                                </div>
+                                <div class="input-fields">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label for="proportionArea">Lägenhetens andel</mat-label>
+                                        <input #input1 matInput type="number" [(ngModel)]="brfParams.proportion"
+                                            name="proportion" id="proportion" min="0" max="1" step="0.01" value=""
+                                            required>
+                                    </mat-form-field>
+
+                                    <div class="description">
+                                        <p>
+                                            Hur stor är din lägenhet uttryckt i kvadrameter?
+                                        </p>
+                                    </div>
+                                    <mat-form-field appearance="fill">
+                                        <mat-label for="proportionArea">Lägenhetens boyta</mat-label>
+                                        <input matInput type="number" [(ngModel)]="brfParams.residenceArea"
+                                            name="residenceArea" id="residenceArea" min="0" required>
+                                    </mat-form-field>
+                                    <div class="description">
+                                        <p>
+                                            Vad är lägenhetens månadsavgift?
+                                        </p>
+                                    </div>
+                                    <mat-form-field appearance="fill">
+                                        <mat-label for="proportionArea">Månadsavgift</mat-label>
+                                        <input matInput type="number" [(ngModel)]="brfParams.monthlyFee"
+                                            name="monthlyFee" id="monthlyFee" min="0" required>
+                                    </mat-form-field>
+                                </div>
+                                <div>
+                                    <button mat-button matStepperNext type="button"
+                                        [disabled]="!brfParams.monthlyFee || !brfParams.residenceArea || !brfParams.proportion">Nästa
+                                    </button>
+                                    <button mat-button matStepperPrevious type="button">Tillbaka</button>
+                                </div>
+                            </mat-step>
+                            <mat-step id="community ">
+                                <ng-template matStepLabel>Avskrivningar | Amortering | Lån | Resultat</ng-template>
+
+
+                                <div class="input-fields">
+                                    <div class="description">
+                                        <p>
+                                            Hur mycket lån har bostadsrättsföreningen?
+                                        </p>
+                                    </div>
+
+                                    <mat-form-field appearance="fill">
+                                        <mat-label for="loans">Föreningens lån</mat-label>
+                                        <input matInput type="number" [(ngModel)]="brfParams.loans" name="loans"
+                                            id="loans" min="0" required>
+                                    </mat-form-field>
+
+                                    <div class="description">
+                                        <p>
+                                            Hur mycket amorterar bostadsrättsföreningen per år?
+                                        </p>
+                                    </div>
+                                    <mat-form-field appearance="fill">
+                                        <mat-label for="proportionArea">Amortering</mat-label>
+                                        <input matInput type="number" [(ngModel)]="brfParams.amortization"
+                                            name="amortization" id="amortization" min="0" required>
+                                    </mat-form-field>
+                                    <div class="description">
+                                        <p>
+                                            Hur mycket avskrivningar gör föreningen per år?
+                                        </p>
+                                    </div>
+                                    <mat-form-field appearance="fill">
+                                        <mat-label for="proportionArea">Avskrivningar</mat-label>
+                                        <input matInput type="number" [(ngModel)]="brfParams.depreciation"
+                                            name="depreciation" id="depreciation" min="0" required>
+                                    </mat-form-field>
+
+                                    <div class="description">
+                                        <p>
+                                            Vad blev årets resultat för bostadsföreningen?
+                                        </p>
+                                    </div>
+                                    <mat-form-field appearance="fill">
+                                        <mat-label for="proportionArea">Årets Resultat</mat-label>
+                                        <input matInput type="number" [(ngModel)]="brfParams.result" name="result"
+                                            id="result" required>
+                                    </mat-form-field>
+                                </div>
+
+                                <div>
+                                    <button mat-button matStepperNext type="button"
+                                        [disabled]="!brfParams.monthlyFee || !brfParams.residenceArea || !brfParams.proportion">Nästa
+                                    </button>
+                                    <button mat-button matStepperPrevious type="button">Tillbaka</button>
+                                </div>
+
+                            </mat-step>
+
+                            <mat-step id="revenues-costs">
+
+                                <ng-template matStepLabel>Intäkter | Kostnader</ng-template>
+
+                                <div class="input-fields">
+                                    <div class="description">
+                                        <p>
+                                            Fyll i föreningens totala intäkter?
+                                        </p>
+                                    </div>
+                                    <mat-form-field appearance="fill">
+                                        <mat-label for="proportionArea">Totala intäkter</mat-label>
+                                        <input matInput type="number" [(ngModel)]="brfParams.totalRevenue"
+                                            name="totalRevenue" id="totalRevenue" min="0" required>
+                                    </mat-form-field>
+                                    <div class="description">
+                                        <p>
+                                            Fyll i föreningens kommersiella intäkter?
+                                        </p>
+                                    </div>
+                                    <mat-form-field appearance="fill">
+                                        <mat-label for="proportionArea">Kommersiella intäkter</mat-label>
+                                        <input matInput type="number" [(ngModel)]="brfParams.commercialRevenue"
+                                            name="commercialRevenue" id="commercialRevenue" min="0" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="description">
+                                    <p>
+                                        Vad är föreningens totala kostnader?
+                                    </p>
+                                </div>
+                                <mat-form-field appearance="fill">
+                                    <mat-label for="proportionArea">Föreningens kostnader</mat-label>
+                                    <input matInput type="number" [(ngModel)]="brfParams.miscellaneousCosts"
+                                        name="miscellaneousCosts" id="miscellaneousCosts" min="0" required>
+                                </mat-form-field>
+                                <div class="description">
+                                    <p>
+                                        Vad är föreningens kapitalkostnader?
+                                    </p>
+                                </div>
+                                <mat-form-field appearance="fill">
+                                    <mat-label for="proportionArea">Kapitalkostnader</mat-label>
+                                    <input matInput type="number" [(ngModel)]="brfParams.capitalCosts"
+                                        name="capitalCosts" id="capitalCosts" min="0" required>
+                                </mat-form-field>
+                                <div>
+                                    <button mat-button matStepperNext type="button">Nästa</button>
+                                    <button mat-button matStepperPrevious type="button">Tillbaka</button>
+                                </div>
+
+                            </mat-step>
+
+                            <mat-step id="finished">
+                                <ng-template matStepLabel>Beräkna</ng-template>
+                                <p>Kör uträkningar för din bostadsrättsförening</p>
+                                <div class="ml-2">
+                                    <button mat-raised-button color="primary" type="submit" [disabled]="brfForm.invalid"
+                                        data-bs-dismiss="modal">Beräkna</button>
+                                    <button mat-raised-button color="accent" matStepperPrevious
+                                        type="button">Tillbaka</button>
+                                </div>
+                            </mat-step>
+                        </mat-stepper>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div #printContainer class="printContainer" style="display: none;">
+
+        <div id="checkList">
+            <header>
+                <h1>Checklista – köp av bostadsrätt</h1>
+            </header>
+            <br>
+            <hr>
+
+            <div class="row-element">
+                <div>
+                    <p>Är bostadsrättsföreningens fastighet fullvärdeförsäkrad</p>
+                </div>
+                <div style="display: flex;">
+                    <input type="checkbox">
+                    <span>Ja</span>
+                    <input type="checkbox">
+                    <span>Nej</span>
+                </div>
+            </div>
+
+            <p>Har bostadsrättsföreningen en ansvarsförsäkring för styrelsen</p>
+            <p>Äger bostadsrättsföreningen marken</p>
+            <p>Har föreningen tomträtt</p>
+            <p>
+                Om ja, när ska tomträttsavgälden omförhandlas: <b>{{radio1}}</b>
+            </p>
+            <p>
+                Bostadsrättsföreningens värdeår: <b>{{responseData?.proportionAmortization | currency: 'KR/KVM'}}</b>
+                kr/kvm
+            </p>
+            <p>
+                Lägenhetens andelstal är: <b>ANDELSTAL</b>
+            </p>
+            <p>
+                Lägenhetens boyta är: <b>{{responseData?.residenceArea}}</b> kvm
+            </p>
+
+            <div class="container-print-input">
+                <p>_______________________________________________________________________________________________________________________________________
+                </p>
+                <div class="row-element">
+                    <div>
+                        <p>
+                            Lägenhetens andel av föreningens lån
+                        </p>
+
+                    </div>
+                    <div>
+                        <b>{{responseData?.proportionOfAssociationLoans | currency: 'KR/KVM '}}</b>
+                    </div>
+                </div>
+                <p>
+                    ≤3000 kr/kvm (låg)<br>
+                    >3000≤6000 kr/kvm (låg till måttlig)<br>
+                    >6000≤9000 kr/kvm (måttlig till hög)<br>
+                    >9000 kr/kvm (hög)<br>
+                </p>
+            </div>
+
+            <div class="container-print-input">
+                <p>_______________________________________________________________________________________________________________________________________
+                </p>
+                <div class="row-element">
+                    <div>
+                        <p>
+                            Lägenhetens andel av bostadsrättsföreningens sparande
+                        </p>
+
+                    </div>
+                    <div>
+                        <b>{{responseData?.proportionOfAssociationSavings | currency: 'KR/KVM '}}</b>
+                    </div>
+                </div>
+                <p>
+                    kr/kvm<br>
+                    ≤100 kr/kvm (låg)<br>
+                    >100≤150 kr/kvm (låg till måttlig)<br>
+                    >150≤200 kr/kvm (måttlig till hög)<br>
+                    >200 kr/kvm (hög)<br>
+                </p>
+            </div>
+
+            <div class="container-print-input">
+                <p>_______________________________________________________________________________________________________________________________________
+                </p>
+                <div class="row-element">
+                    <div>
+                        <p>
+                            Driftskostnad per kvm boyta
+                        </p>
+
+                    </div>
+                    <div>
+                        <b>{{responseData?.operatingCostSqm | currency: 'KR/KVM '}}</b> kr/kvm<br>
+                    </div>
+                </div>
+                <p>
+                    ≤375 kr/kvm (låg)<br>
+                    >375≤450 kr/kvm (låg till måttlig)<br>
+                    >450≤550 kr/kvm (måttlig till hög)<br>
+                    >550 kr/kvm (hög)<br>
+                </p>
+            </div>
+
+            <div class="container-print-input">
+                <p>_______________________________________________________________________________________________________________________________________
+                </p>
+                <div class="row-element">
+                    <div>
+                        <p>
+                            Hur mycket stiger månadsavgiften om räntan stiger med en procentenhet
+                        </p>
+
+                    </div>
+                    <div>
+                        <b>{{responseData?.interestRateOnePercent | currency: 'KR/KVM'}}</b> kr/mån
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-print-input">
+                <p>_______________________________________________________________________________________________________________________________________
+                </p>
+                <div class="row-element">
+                    <div>
+                        <p>
+                            Årsavgift per kvm boyta
+                        </p>
+
+                    </div>
+                    <div>
+                        <b>{{responseData?.annualFeeSqm | currency: 'KR/KVM '}}</b><br>
+                    </div>
+                </div>
+                <p>
+                    ≤325 kr/kvm (låg)<br>
+                    >325≤650 kr/kvm (låg till måttlig)<br>
+                    >650≤900 kr/kvm (måttlig till hög)<br>
+                    >900 kr/kvm (hög)<br>
+                </p>
+            </div>
+
+            <div class="container-print-input">
+                <p>_______________________________________________________________________________________________________________________________________
+                </p>
+                <div class="row-element">
+                    <div>
+                        <p>
+                            Hur stor andel i procent av föreningens intäkter avser kommersiella lokaler
+                        </p>
+
+                    </div>
+                    <div>
+                        <b>{{responseData?.ratioCommercialRevenue | currency: 'KR/KVM'}}</b> %<br>
+                    </div>
+                </div>
+                <p>
+
+
+                    ≤5% (låg)<br>
+                    >5%≤15% (låg till måttlig)<br>
+                    >15%≤25% (måttlig till hög)<br>
+                    >25% (hög)<br>
+                </p>
+            </div>
+
+            <div class="container-print-input">
+                <p>_______________________________________________________________________________________________________________________________________
+                </p>
+                <div class="row-element">
+                    <div>
+                        <p>
+                            Lägenhetens andel av föreningens resultat
+                        </p>
+
+                    </div>
+                    <div>
+                        <b>{{responseData?.proportionResult | currency: 'KR/KVM' }}</b> kr/kvm
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-print-input">
+                <p>_______________________________________________________________________________________________________________________________________
+                </p>
+                <div class="row-element">
+                    <div>
+                        <p>
+                            Lägenhetens andel av föreningens amorteringar
+                        </p>
+
+                    </div>
+                    <div>
+                        <b>{{responseData?.proportionAmortization | currency: 'KR/KVM '}}</b> kr/kvm
+                    </div>
+                </div>
+                <p>_______________________________________________________________________________________________________________________________________
+                </p>
             </div>
         </div>
     </div>

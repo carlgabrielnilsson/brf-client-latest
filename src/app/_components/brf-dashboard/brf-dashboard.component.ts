@@ -108,7 +108,7 @@ export class BrfDashboardComponent implements OnInit {
     this.doughnutChart = new Chart(brfDoughnutChartOptions(0, 0, 0));
   }
 
-  /*public onCalculateBrf(brfForm: NgForm): void {
+  public onCalculateBrf(brfForm: NgForm): void {
     this.hideValues();
     this.brfService.onCalcBrf(brfForm.value).subscribe({
       next: (response: BrfParams) => {
@@ -122,7 +122,7 @@ export class BrfDashboardComponent implements OnInit {
         alert(error.message);
       },
     })
-  }*/
+  }
 
   public resetBrfForm(brfForm: NgForm): void {
     brfForm.reset();
