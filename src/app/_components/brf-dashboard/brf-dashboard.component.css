@@ -45,51 +45,56 @@ hr {
     height: 100%;
     width: 100%;
     padding: var(--sw-pd2);
-    border: 1px solid black;
 }
 
 .spacer {
     flex: 1 1 auto;
 }
 
+#card-group-two, 
 #card-group-three,
 #card-group-four,
 #toolbar {
     margin: 10px;
 }
 
-#card-group-one {
-    margin-left: 10px;
-}
-
-#card-group-one .sw-card {
-    border-bottom-right-radius: 0px !important;
-}
 
 #card-group-two {
-    margin-right: 10px;
+    box-shadow: var(--sw-bs-medium);
+    border-radius: var(--sw-br4);
 }
 
 #card-group-two .sw-card {
-    border-bottom-left-radius: 0px !important;
-    border-top-left-radius: 0px !important;
-    box-shadow: none;
+    border-radius: var(--sw-br4);
+    box-shadow: var(--sw-bs-medium);
 }
 
 
 
 #card-group-one {
     grid-area: group-one;
-    border-bottom-left-radius: var(--sw-br4);
-    border-top-left-radius: var(--sw-br4);
-    border-top-right-radius: var(--sw-br4);
-    margin-top: 10px;
+    box-shadow: var(--sw-bs-medium);
     overflow: scroll;
+
 }
 
 #card-group-one .card-body {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.toolbar-buttons {
+    background-color: rgb(42, 203, 231)!important;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    align-items: center;
+    padding: var(--sw-pd2);
+}
+
+.question {
+    background-color: orange !important;
     align-items: center;
 }
 
@@ -101,7 +106,6 @@ hr {
     height: 90%;
     background-color: var(--sw-bg-white);
     border-radius: var(--sw-br4);
-    margin-right: 4px;
     box-shadow: var(--sw-bs-medium);
 }
 
@@ -167,6 +171,7 @@ mat-slider input {
 #card-group-three {
     grid-area: group-three;
     display: flex;
+    height: 100%;
     justify-content: center;
     align-items: center;
     border-radius: var(--sw-br4);
@@ -198,7 +203,7 @@ mat-slider input {
     height: 100%;
     grid-area: group-four;
     border-radius: var(--sw-br4);
-    margin-bottom: 0px;
+    box-shadow: var(--sw-bs-medium);
     overflow: scroll;
 }
 
@@ -257,7 +262,6 @@ mat-slider input {
 
 .card-header h2 {
     height: 100%;
-    margin: 0;
 }
 
 .card-body {

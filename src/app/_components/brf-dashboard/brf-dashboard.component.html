@@ -2,17 +2,14 @@
 
     <div id="toolbar">
         <div class="toolbar-content">
-            <button mat-raised-button>
+            <button mat-raised-button class="toolbar-buttons d-flex justify-content-between">
                 <mat-icon>calculate</mat-icon>
                 Ny Kalkyl
             </button>
             <span class="spacer"></span>
-            <button mat-raised-button type="button" (click)="onPrint()">
+            <button mat-raised-button class="toolbar-buttons d-flex justify-content-between" type="button" (click)="onPrint()">
                 <mat-icon>save</mat-icon>
                 Spara PDF
-            </button>
-            <button mat-raised-button>
-                <mat-icon>share</mat-icon>
             </button>
         </div>
     </div>
@@ -23,7 +20,7 @@
             <div class="card-content">
                 <div class="card-header">
                     <h2>Ränta / Månadsavgift</h2>
-                    <button mat-mini-fab>
+                    <button mat-mini-fab class="question">
                         <mat-icon>
                             question_mark
                         </mat-icon>
@@ -74,7 +71,7 @@
             <div class="card-content">
                 <div class="card-header">
                     <h2>BRF resultat / boyta</h2>
-                    <button mat-mini-fab>
+                    <button mat-mini-fab class="question">
                         <mat-icon>question_mark</mat-icon>
                     </button>
                 </div>
@@ -96,7 +93,7 @@
             <div class="card-content">
                 <div class="card-header">
                     <h2>Andel av BRF Lån</h2>
-                    <button mat-mini-fab>
+                    <button mat-mini-fab class="question">
                         <mat-icon>question_mark</mat-icon>
                     </button>
                 </div>
@@ -119,12 +116,12 @@
 
     <div id="card-group-three">
 
-        <div class="left p-3">
+        <div class="left pb-3">
             <div class="sw-card">
                 <div class="card-content">
                     <div class="card-header">
                         <h2>Årsavgift / boyta</h2>
-                        <button mat-mini-fab>
+                        <button mat-mini-fab class="question">
                             <mat-icon>question_mark</mat-icon>
                         </button>
                     </div>
@@ -149,7 +146,7 @@
                 <div class="card-content">
                     <div class="card-header">
                         <h2>Driftskostnad / boyta</h2>
-                        <button mat-mini-fab>
+                        <button mat-mini-fab class="question">
                             <mat-icon>question_mark</mat-icon>
                         </button>
                     </div>
@@ -170,12 +167,12 @@
             </div>
         </div>
 
-        <div class="right pt-3 pb-3 ">
+        <div class="right pb-3 ">
             <div class="sw-card">
                 <div class="card-content">
                     <div class="card-header">
                         <h2>Andel av BRF sparande</h2>
-                        <button mat-mini-fab>
+                        <button mat-mini-fab class="question">
                             <mat-icon>question_mark</mat-icon>
                         </button>
                     </div>
@@ -197,11 +194,11 @@
                 </div>
             </div>
 
-            <div class="sw-card pt-3 pb-3">
+            <div class="sw-card pb-3">
                 <div class="card-content">
                     <div class="card-header">
                         <h2>Andel av BRF Amorteringar</h2>
-                        <button mat-mini-fab>
+                        <button mat-mini-fab class="question">
                             <mat-icon>question_mark</mat-icon>
                         </button>
                     </div>
@@ -214,6 +211,7 @@
                         </div>
                         <div class="display-risk">
                             <mat-progress-bar mode="determinate"></mat-progress-bar>
+                            <h3 #riskTextLoans class="risk-limit-text"></h3>
                         </div>
                     </div>
                 </div>
@@ -226,7 +224,7 @@
             <div class="card-content">
                 <div class="card-header">
                     <h2>Andel kommersiella intäkter</h2>
-                    <button mat-mini-fab>
+                    <button mat-mini-fab class="question">
                         <mat-icon>question_mark</mat-icon>
                     </button>
                 </div>
