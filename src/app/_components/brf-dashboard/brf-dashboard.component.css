@@ -1,0 +1,49 @@
+.container-fluid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 0.2fr repeat(3, 1fr);
+    grid-template-areas:
+        "toolbar toolbar toolbar toolbar"
+        "group-one group-one group-one group-one"
+    ;
+    border: 1px solid black;
+}
+
+#toolbar {
+    grid-area: toolbar;
+    border: 1px solid rgb(209, 33, 33);
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+#card-group-one {
+    grid-area: group-one;
+    border: 1px solid green;
+
+}
+
+#card-group-two {
+    grid-area: group-two;
+    border: 1px solid blue;
+
+}
+
+#card-group-three {
+    grid-area: group-three;
+    border: 1px solid lawngreen;
+}
+
+#card-group-four {
+    grid-area: group-four;
+    border: 1px solid lawngreen;
+}
+
+
+
+.sw-card {
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+}

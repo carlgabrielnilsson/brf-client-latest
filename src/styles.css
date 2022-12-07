@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+html, body { height: 100%; }
+body { 
+    padding: 0;
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+:root {
+    --sw-primary: #ff9100;
+    --icon-light: white;
+    --font-light: white; 
+}
+
+mat-icon {
+    color: var(--icon-light);
+}
+
+.light-text {
+    color: var(--font-light);
+}
+
+.button-primary {
+    padding: 5px !important;
+    background-color: var(--sw-primary) !important;
+}

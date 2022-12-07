@@ -1,0 +1,7 @@
+mat-toolbar {
+    background: var(--sw-primary) !important;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
