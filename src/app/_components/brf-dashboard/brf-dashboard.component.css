@@ -16,7 +16,8 @@ hr {
 }
 
 .bold-text-big {
-    font-size: 2.2rem;
+    color: rgb(92, 87, 87);
+    font-size: 2rem;
     font-weight: 700;
 }
 
@@ -83,6 +84,7 @@ hr {
     border-top-left-radius: var(--sw-br4);
     border-top-right-radius: var(--sw-br4);
     margin-top: 10px;
+    overflow: scroll;
 }
 
 #card-group-one .card-body {
@@ -97,10 +99,10 @@ hr {
     flex-direction: column;
     align-items: center;
     height: 90%;
-    background-color: var(--sw-light-bg);
+    background-color: var(--sw-bg-white);
     border-radius: var(--sw-br4);
     margin-right: 4px;
-    box-shadow: var(--sw-bs-reverse);
+    box-shadow: var(--sw-bs-medium);
 }
 
 mat-slider {
@@ -139,6 +141,11 @@ mat-slider input {
     margin: 10px;
     height: 90%;
     width: 100%;
+
+}
+
+#card-group-one::-webkit-scrollbar {
+    display: none;
 }
 
 #card-group-two {
@@ -150,6 +157,11 @@ mat-slider input {
     border-bottom-right-radius: var(--sw-br4);
     background-color: var(--sw-bg-white);
     padding-left: var(--sw-pd4);
+    overflow: scroll;
+}
+
+#card-group-two::-webkit-scrollbar {
+    display: none;
 }
 
 #card-group-three {
@@ -158,6 +170,11 @@ mat-slider input {
     justify-content: center;
     align-items: center;
     border-radius: var(--sw-br4);
+    overflow: scroll;
+}
+
+#card-group-three::-webkit-scrollbar {
+    display: none;
 }
 
 
@@ -182,12 +199,36 @@ mat-slider input {
     grid-area: group-four;
     border-radius: var(--sw-br4);
     margin-bottom: 0px;
+    overflow: scroll;
 }
+
+#card-group-four::-webkit-scrollbar {
+    display: none;
+}
+
+#card-group-four .list {
+    display: flex;
+    height: 200px;
+    flex-direction: column;
+}
+
+.risk-list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--sw-light-bg);
+    padding: var(--sw-pd4);
+    overflow: scroll;
+}
+
+.risk-list::-webkit-scrollbar {
+    display: none;
+}
+
 
 .chart-container {
     display: grid;
     background-color: var(--sw-light-bg);
-    height: 350px;
+    height: 250px;
     width: auto;
     border-radius: var(--sw-br4);
     margin-top: 10px;
@@ -220,8 +261,31 @@ mat-slider input {
 }
 
 .card-body {
-    height: max-content;
+    height: fit-content;
 }
+
+#card-group-three .card-body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+#card-group-two .card-body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+mat-progress-bar {
+    height: 10px;
+}
+
+#card-group-three .card-body .risk-limit-text {
+    padding: var(--sw-pd3);
+}
+
 
 .sw-card {
     height: 100%;

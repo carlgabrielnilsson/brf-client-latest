@@ -1,1 +1,161 @@
-<p>faq works!</p>
+<div class="faq-container">
+
+    <div class="accordions">
+        <div class="header">
+            <h1 class="bold-text">FAQs - Köp av bostadsrätt</h1>
+        </div>
+        <div class="middle">
+            <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Lägenhets andel av föreningens lån
+                        </mat-panel-title>
+
+                    </mat-expansion-panel-header>
+                    <p>
+                        Lägenhetens andelstal multiplicerat med bostadsrättsföreningens lån dividerat med lägenhetens
+                        boyta.</p>
+
+                    <h2 style="font-size:100%;">Vad baseras andelstalet på?</h2>
+                    När en bostadsrättsförening bildas får varje bostadsrätt ett eget andelstal. Hur stort det
+                    andelstalet blir
+                    baseras på bostadsrättens andel av de totala insatserna i föreningen. Hur mycket varje bostadsrätt
+                    skall
+                    bidra med i insats vid nybildningen bestäms av den ekonomiska planen. Det finns ett gäng olika
+                    parametrar
+                    som avgör hur stor insatsen blir för en specifik bostadsrätt. Här är några exempel:
+
+                    Bostadsrättens storlek
+                    Våningsplan
+                    Om det finns balkong
+                    Var i fastigheten bostaden ligger
+                    Om bostaden ligger nära bullrande plats som tex tvättstuga
+                    Dessa (och fler) olika parametrar styr alltså insatsen och därmed andelstalets storlek. Det betyder
+                    i grund
+                    och botten att två bostadsrätter som är precis lika stora men som skiljer sig vad gäller våning,
+                    läge eller
+                    annat kan ha olika andelstal.
+
+                    Utifrån andelstalet beräknas sedan hur mycket bostadsrätten skall betala till föreningen varje månad
+                    (avgiften/”hyran”).
+
+
+
+                </mat-expansion-panel>
+            </mat-accordion>
+            <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Lägenhetens andel av bostadsrättsföreningens sparande
+                        </mat-panel-title>
+
+                    </mat-expansion-panel-header>
+                    <p>
+                        Lägenhetens andelstal multiplicerat med summan av bostadsrättsföreningens avskrivningar och
+                        årets resultat
+                        dividerat med lägenhetens boyta
+                    </p>
+                </mat-expansion-panel>
+            </mat-accordion>
+            <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Driftskostnad per kvm boyta
+                        </mat-panel-title>
+
+                    </mat-expansion-panel-header>
+                    <p>
+                        Lägenhetens andelstal multiplicerat med summan av bostadsrättsföreningens samtliga kostnader
+                        minus
+                        avskrivningar och kapitalkostnader dividerat med lägenhetens boyta </p>
+
+                    <h2 style="font-size:100%;">Vad är driftkostnad?</h2>
+                    Det är kostnaden för att bo i hushållet exklusive avgiften. Det är alltså kringkostnader så som
+                    försäkringar
+                    och el. Driftkostnaden kan vara väldigt olika beroende på hur stor bostaden ser ut eller vilken typ
+                    av värme
+                    som det är i lägenheten.
+
+                </mat-expansion-panel>
+            </mat-accordion>
+            <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Hur mycket stiger månadsavgiften om räntan stiger med en procentenhet
+                        </mat-panel-title>
+
+                    </mat-expansion-panel-header>
+                    <p>
+                        Lägenhetens andelstal multiplicerat med summan av bostadsrättsföreningens lån multiplicerat med
+                        en procent
+                        dividerat med 12 </p>
+
+                    En bostadsrättsförenings största utgift är i regel dess banklån. Det är viktigt att se hur
+                    räntekostnaderna
+                    ökar ifall räntan skulle stiga i framtiden. Givet att bostadsrättsföreningen inte har någon buffert
+                    så innebär
+                    en ränteökning om 1 procentenhet att din avgift stiger med (bostadsrättsföreningens lån) × 0,01 ×
+                    din andel av
+                    föreningen
+
+                    Exempel:
+                    Din förening har 50 miljoner kronor i lån till en ränta på i snitt 1%. Nuvarande föreningsavgift är
+                    2500
+                    kronor per månad, och du äger 0,3% av föreningen. Om räntan skulle stiga med 1 procentenhet (till
+                    2%) skulle
+                    din nya föreningsavgift bli 2500 + 50 miljoner × 0,01 × 0,003 = 4000kr. Om räntan stiger med 2
+                    procentenheter
+                    (till 3%) skulle din nya avgift bli 2500 + 50 miljoner × 0,02 × 0,003 = 5500kr.
+
+                </mat-expansion-panel>
+            </mat-accordion>
+            <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Årsavgift per kvm boyta
+                        </mat-panel-title>
+
+                    </mat-expansion-panel-header>
+                    <p>
+
+                        Månadsavgiften multiplicerat med 12 dividerat med lägenhetens boyta
+
+                    </p>
+                </mat-expansion-panel>
+            </mat-accordion>
+            <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Lägenhetens andel av föreningens resultat
+                        </mat-panel-title>
+
+                    </mat-expansion-panel-header>
+                    <p>
+                        Lägenhetens andelstal multiplicerat med bostadsrättsföreningens resultat dividerat med
+                        lägenhetens boyta
+                    </p>
+                </mat-expansion-panel>
+            </mat-accordion>
+            <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Lägenhetens andel av föreningens amorteringar
+                        </mat-panel-title>
+
+                    </mat-expansion-panel-header>
+                    <p>
+                        Lägenhetens andelstal multiplicerat med bostadsrättsföreningens amorteringar dividerat med
+                        lägenhetens boyta
+                    </p>
+                </mat-expansion-panel>
+            </mat-accordion>
+
+        </div>
+    </div>

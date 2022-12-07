@@ -1,0 +1,40 @@
+.faq-container {
+    display: flex;
+    height: calc(100vh - 64px);
+    width: 100%;
+  }
+  
+  .accordions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: var(--sw-pd4);
+    height: 100%;
+    border-top-left-radius: 26px;
+  }
+  
+  .middle {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 64px);
+    width: 100%;
+    flex-direction: column;
+    padding: 5.2rem 5.2rem;
+    overflow-y: scroll;
+  
+  }
+  .middle::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .bold-text {
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+  
+  mat-accordion, mat-expansion-panel {
+    margin-bottom: 15px;
+  }
+  
+  

@@ -77,13 +77,13 @@ export class BrfDashboardComponent implements OnInit {
   @ViewChild('stepper') stepper!: MatStepper;
 
 
+
   //slider Options
   disabled = false;
   showTicks = false;
   step = 1;
   thumbLabel = true;
   value = 1;
-
   
 
   //Variables
