@@ -26,7 +26,7 @@ export function brfDoughnutChartOptions(x: number, x1: number, r1: number): Opti
         title: {
             verticalAlign: 'middle',
             floating: true,
-            text: r1 + '%',
+            text: (x / x1) * 100 + '%',
             style: {
                 fontSize:'2rem',
                 fontFamily: 'popins, sans-serif' , 
@@ -43,12 +43,12 @@ export function brfDoughnutChartOptions(x: number, x1: number, r1: number): Opti
                 data: [
                     {
                         name: '',  
-                        y: r1,
+                        y: x1,
                         color: '#fa3e89'
                     },
                     {
                         name: '',
-                        y: x1,
+                        y: x,
                         color: '#6176eb'
                     },
                 ]

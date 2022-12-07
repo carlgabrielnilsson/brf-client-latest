@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2, OnChanges } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { Chart } from 'angular-highcharts';
@@ -55,6 +55,7 @@ export class BrfDashboardComponent implements OnInit {
   @ViewChild('hidden4') hidden4!: ElementRef;
   @ViewChild('hidden5') hidden5!: ElementRef;
   @ViewChild('hidden6') hidden6!: ElementRef;
+  @ViewChild('hidden7') hidden7!: ElementRef;
   @ViewChild('print') printArea!: ElementRef;
 
   @ViewChild('yes1') hasFullValueInsurance!: ElementRef;
@@ -85,7 +86,6 @@ export class BrfDashboardComponent implements OnInit {
   step = 1;
   thumbLabel = false;
   value = 1;
-
   //Variables
   public responseData?: BrfParams;
   public brfParams: BrfParams = new BrfParams;
@@ -101,10 +101,15 @@ export class BrfDashboardComponent implements OnInit {
 
   constructor(
     private brfService: BrfCalculatorService,
+    private rendered: Renderer2,
   ) { }
 
   ngOnInit(): void {
-    this.doughnutChart = new Chart(brfDoughnutChartOptions(0, 0, 0));
+    this.doughnutChart = new Chart(brfDoughnutChartOptions(5, 10, 20));
+  }
+
+  ngOnChanges(): void {
+    this.whatIfInterestIncr();
   }
 
   public onCalculateBrf(brfForm: NgForm): void {
@@ -278,10 +283,12 @@ export class BrfDashboardComponent implements OnInit {
   }
 
   public whatIfInterestIncr(): void {
+    console.log(this.value)
     if (this.responseData?.proportion != undefined && this.responseData.loans != undefined) {
-      this.value = this.sliderValue.nativeElement.value
+      this.hidden7.nativeElement.style.display = "none";
       this.whatIfInterestIncrease = this.responseData.proportion * ((this.responseData.loans) * (this.value / 100)) / 12
     }
+    console.log(this.value)
   }
 
   public hideValues(): void {
@@ -307,23 +314,7 @@ export class BrfDashboardComponent implements OnInit {
     }
   }
 
-
-  public config = {
-    printMode: 'template-popup',
-    pageTitle: 'Brf Checklista',
-    stylesheets: [{ rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' }],
-    styles: [
-      'header, table, footer { margin: auto; text-align: center; }',
-      'h1 { font-size: 4rem;}',
-      'p { font-size: 1.2rem;}',
-      '.row-element { display: flex; justify-content: space-between;}']
-  }
-
-
-}
-
-/*
-public formatLabel(value: number | null) {
+  public formatLabel(value: number | null) {
     if (!value) {
       return 0;
     }
@@ -345,4 +336,17 @@ public formatLabel(value: number | null) {
     this.rendered.removeStyle(thumbEle, 'transform');
   }
 
-*/
+  public config = {
+    printMode: 'template-popup',
+    pageTitle: 'Brf Checklista',
+    stylesheets: [{ rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' }],
+    styles: [
+      'header, table, footer { margin: auto; text-align: center; }',
+      'h1 { font-size: 4rem;}',
+      'p { font-size: 1.2rem;}',
+      '.row-element { display: flex; justify-content: space-between;}']
+  }
+
+
+}
+
