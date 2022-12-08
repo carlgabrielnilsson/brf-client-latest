@@ -55,15 +55,16 @@ button {
     
 }
 
+.bold-text-big {
+    color: rgb(92, 87, 87);
+    font-size: 2rem;
+    font-weight: 700;
+}
 
-
-
-
-
-
-
-
-
+.bold-text-small {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
 
 button:hover {
     background-color: var(--sw-bg-primary-light);

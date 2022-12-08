@@ -1,16 +1,3 @@
-<!--div class="content" style="padding: 100px; background-color: crimson;">
-    <button mat-icon-button [color]="color" *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i"
-        (click)="onClick(i+1)" [matTooltip]="ratingId" matTooltipPosition="above">
-        <mat-icon>
-            {{showIcon(i)}}
-        </mat-icon>
-    </button>
-    <mat-error *ngIf="starCount == null || starCount == 0">
-        Star count is <strong>required</strong> and cannot be zero
-    </mat-error>
-    <p class="body-2">
-        Your rated <span class="body-2">{{rating}}</span> / <span class="body-2">{{starCount}}</span>
-    </p-->
 <div class="background"
     style="background-image: url('../../../assets/img/oakLeafBackground.jpg'); background-size:cover;">
     <div class="sectionOne">
@@ -19,10 +6,12 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    background-color: rgb(246, 240, 240);
-                    border-radius: var(--sw-br4); padding: var(--sw-pd4);">
+                    height: fit-content;
+                    background-color: white;
+                    border-radius: var(--sw-br4); padding: var(--sw-pd4);
+                    box-shadow: var(--sw-bs-medium);">
                 <div class="headers">
-                    <h3>Vänligen lämna omdöme<span></span></h3>
+                    <h3 class="bold-text-big">Lämna ditt omdöme<span></span></h3>
                     <br />
                     <form #feedbackForm="ngForm" (ngSubmit)="onFeedback(feedbackForm)">
                         <input type="hidden" id="id" name="name" [(ngModel)]="feedback.id">
@@ -30,8 +19,8 @@
 
                         <div class="description"
                             style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
-                            <textarea name="statement" id="statement" [(ngModel)]="feedback.statement" cols="30"
-                                rows="10" placeholder="Kommentar">
+                            <textarea style="background-color: rgb(238, 238, 238); border: none; border-radius: 1rem; padding: 10px;" name="statement" id="statement" [(ngModel)]="feedback.statement" cols="30"
+                                rows="10" placeholder="Vad kan vi förbättra?">
                                 </textarea>
                         </div>
                         <div class="center">
@@ -46,25 +35,12 @@
                                         <mat-option value="5">5</mat-option>
                                     </mat-select>
                                 </mat-form-field>
-                                <!--div class="box box-large centered-column">
-                                    {{value}}
-                                    <div class="slider">
-                                        <div>
-                                            <label class="example-value-label bold-text-small">{{value}}</label>
-                                        </div>
-                                        <mat-slider [(ngModel)]="value" id="interest-slider" class="example-margin" thumbLabel
-                                            [max]="max" [min]="min" [vertical]="false" [step]="step"
-                                            (valueChange)="onRating()">
-                                        </mat-slider>
-                                    </div>
-                        
-                                </div-->
                             </div>
                             <div class="actions justify-content-evenly" style="display: flex; color: white;">
-                                <button mat-raised-button routerLink="/home">
+                                <button class="m-2" mat-raised-button routerLink="/home">
                                     Nej tack!
                                 </button>
-                                <button mat-raised-button type="submit" routerLink="/home">
+                                <button class="m-2" mat-raised-button type="submit" routerLink="/home">
                                     Skicka
                                 </button>
                             </div>
