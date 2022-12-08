@@ -85,7 +85,7 @@ export class BrfDashboardComponent implements OnInit {
   showTicks = false;
   step = 1;
   thumbLabel = false;
-  value = 1;
+  value = 0;
   //Variables
   public responseData?: BrfParams;
   public brfParams: BrfParams = new BrfParams;
