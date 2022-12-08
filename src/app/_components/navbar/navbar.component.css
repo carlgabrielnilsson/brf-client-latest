@@ -5,3 +5,10 @@ mat-toolbar {
 .spacer {
     flex: 1 1 auto;
 }
+
+.header {
+    font-weight: 600;
+    font-size: 2.2rem;
+    margin-top: 0px;
+    color: white;
+}

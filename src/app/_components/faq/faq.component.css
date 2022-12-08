@@ -31,6 +31,7 @@
   .bold-text {
     font-weight: 700;
     font-size: 1.5rem;
+    color: black
   }
   
   mat-accordion, mat-expansion-panel {
