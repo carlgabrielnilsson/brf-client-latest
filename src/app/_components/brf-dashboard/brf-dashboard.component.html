@@ -85,7 +85,7 @@
                         <h3 #hidden3 class="bold-text-big">0 kr/kvm</h3>
                     </div>
                     <div class="display-risk">
-                        <h3 #riskTextProportionResult class="risk-limit-text">
+                        <h3 #riskTextProportionResult class="risk-limit-text bold-text-small">
 
                         </h3>
                     </div>
@@ -112,7 +112,7 @@
                         <h3 #hidden6 class="bold-text-big">0 kr/kvm</h3>
                     </div>
                     <div class="display-risk">
-                        <h3 class="risk-limit-text"></h3>
+                        <h3 class="risk-limit-text bold-text-small"></h3>
                     </div>
                 </div>
 
@@ -146,7 +146,7 @@
                             <mat-progress-bar hor mode="determinate" color='{{progressAnnualFeeSqmColor}}'
                                 value='{{progressAnnualFeeSqm}}'>
                             </mat-progress-bar>
-                            <h3 #riskTextAnnualFeeSqm class="risk-limit-text"></h3>
+                            <h3 #riskTextAnnualFeeSqm class="risk-limit-text bold-text-small"></h3>
                         </div>
                     </div>
                 </div>
@@ -174,7 +174,7 @@
                             <mat-progress-bar mode="determinate" color='{{progressOperatingFeeColor}}'
                                 value='{{progressOperatingFee}}'>
                             </mat-progress-bar>
-                            <h3 #riskTextOperatingFee class="risk-limit-text"></h3>
+                            <h3 #riskTextOperatingFee class="risk-limit-text bold-text-small"></h3>
                         </div>
                     </div>
                 </div>
@@ -205,7 +205,7 @@
                         <div class="display-risk">
                             <mat-progress-bar mode="determinate" color='{{progressSavingsColor}}' value='{{progressSavings}}'>
                             </mat-progress-bar>
-                            <h3 #riskTextSavings class="risk-limit-text"></h3>
+                            <h3 #riskTextSavings class="risk-limit-text bold-text-small"></h3>
                         </div>
                     </div>
                 </div>
@@ -232,7 +232,7 @@
                         <div class="display-risk">
                             <mat-progress-bar mode="determinate" color='{{progressColor}}' value='{{progressLoans}}'>
                             </mat-progress-bar>
-                            <h3 #riskTextLoans class="risk-limit-text"></h3>
+                            <h3 #riskTextLoans class="risk-limit-text bold-text-small"></h3>
                         </div>
                     </div>
                 </div>
@@ -279,8 +279,7 @@
                                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
                                         <div class="d-flex w-100">
-                                            <!--h3 class="bold-text-small">Din nivå är</h3-->
-                                            <h3 #riskTextAnnualFeeSqm class="risk-limit-text"></h3>
+                                            <h3 #riskTextAnnualFeeSqmAcc class="risk-limit-text bold-text-small"></h3>
                                         </div>
                                         ≤325 kr/kvm (låg) <br>
                                         >325≤650 kr/kvm (låg till måttlig) <br>
@@ -303,7 +302,7 @@
                                     <div class="accordion-body">
                                         <div class="d-flex w-100">
                                             <!--h3 class="bold-text-small">Din nivå är</h3-->
-                                            <h3 #ratioOperatingFee class="risk-limit-text"></h3>
+                                            <h3 #riskTextOperatingFeeAcc class="risk-limit-text bold-text-small"></h3>
                                         </div>
                                         ≤ 375 kr/kvm (låg) <br>
                                         >375≤450 kr/kvm (låg till måttlig) <br>
@@ -326,7 +325,7 @@
                                     <div class="accordion-body">
                                         <div class="d-flex w-100">
                                             <!--h3 class="bold-text-small">Din nivå är</h3-->
-                                            <h3 #riskTextSavings class="risk-limit-text"></h3>
+                                            <h3 #riskTextSavingsAcc class="risk-limit-text bold-text-small"></h3>
                                         </div>
                                         ≤100 kr/kvm (låg) <br>
                                         >100≤150 kr/kvm (låg till måttlig) <br>
@@ -349,7 +348,7 @@
                                     <div class="accordion-body">
                                         <div class="d-flex w-100">
                                             <!--h3 class="bold-text-small">Din nivå är</h3-->
-                                            <h3 #riskTextLoans class="risk-limit-text"></h3>
+                                            <h3 #riskTextLoansAcc class="risk-limit-text bold-text-small"></h3>
                                         </div>
                                         ≤3000 kr/kvm (låg) <br>
                                         >3000≤6000 kr/kvm (låg till måttlig) <br>

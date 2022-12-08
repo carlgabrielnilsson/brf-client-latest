@@ -18,20 +18,24 @@ export class BrfDashboardComponent implements OnInit {
 
   @ViewChild('ratioLoans') ratioLoans!: ElementRef;
   @ViewChild('riskTextLoans') riskTextLoans!: ElementRef;
+  @ViewChild('riskTextLoansAcc') riskTextLoansAcc!: ElementRef;
   progressLoans = "";
   progressColor = "";
 
   @ViewChild('riskTextSavings') riskTextSavings!: ElementRef;
+  @ViewChild('riskTextSavingsAcc') riskTextSavingsAcc!: ElementRef;
   @ViewChild('ratioSavings') ratioSavings!: ElementRef;
   progressSavings = "";
   progressSavingsColor = "";
 
   @ViewChild('riskTextOperatingFee') riskTextOperatingFee!: ElementRef;
+  @ViewChild('riskTextOperatingFeeAcc') riskTextOperatingFeeAcc!: ElementRef;
   @ViewChild('ratioOperatingFee') ratioOperatingFee!: ElementRef;
   progressOperatingFee = "";
   progressOperatingFeeColor = "";
 
   @ViewChild('riskTextAnnualFeeSqm') riskTextAnnualFeeSqm!: ElementRef;
+  @ViewChild('riskTextAnnualFeeSqmAcc') riskTextAnnualFeeSqmAcc!: ElementRef;
   @ViewChild('ratioAnnualFeeSqm') ratioAnnualFeeSqm!: ElementRef;
   progressAnnualFeeSqm = "";
   progressAnnualFeeSqmColor = "";
@@ -151,23 +155,29 @@ export class BrfDashboardComponent implements OnInit {
         this.ratioLoans.nativeElement.style.color = 'rgb(100, 192, 88)';
         this.riskTextLoans.nativeElement.style.color = 'rgb(100, 192, 88)';
         this.riskTextLoans.nativeElement.innerText = 'Låg';
+        this.riskTextLoansAcc.nativeElement.style.color = 'rgb(100, 192, 88)';
+        this.riskTextLoansAcc.nativeElement.innerText = 'Låg';
         this.progressLoans = "25";
         this.progressColor = "primary"
       }
       else if (responseData.proportionOfAssociationLoans > 3000 && responseData.proportionOfAssociationLoans < 6000) {
 
-        this.ratioLoans.nativeElement.style.color = 'rgb(97, 97, 192)';
+        this.ratioLoans.nativeElement.style.color = 'rgb(230, 100, 95)';
         this.riskTextLoans.nativeElement.style.color = 'rgb(97, 97, 192)';
         this.riskTextLoans.nativeElement.innerText = 'Låg till måttlig';
+        this.riskTextLoansAcc.nativeElement.style.color = 'rgb(97, 97, 192)';
+        this.riskTextLoansAcc.nativeElement.innerText = 'Låg till måttlig';
         this.progressLoans = "50";
         this.progressColor = "accent"
 
       }
       else if (responseData.proportionOfAssociationLoans >= 6000 && responseData.proportionOfAssociationLoans < 9000) {
 
-        this.ratioLoans.nativeElement.style.color = 'rgb(245, 137, 66)';
+        this.ratioLoans.nativeElement.style.color = 'rgb(230, 100, 95)';
         this.riskTextLoans.nativeElement.innerText = 'Måttlig till hög';
-        this.riskTextLoans.nativeElement.style.color = 'rgb(245, 137, 66)';
+        this.riskTextLoans.nativeElement.style.color = 'rgb(230, 100, 95)';
+        this.riskTextLoansAcc.nativeElement.innerText = 'Måttlig till hög';
+        this.riskTextLoansAcc.nativeElement.style.color = 'rgb(230, 100, 95)';
         this.progressLoans = "75";
         this.progressColor = "accent"
       }
@@ -175,6 +185,8 @@ export class BrfDashboardComponent implements OnInit {
         this.ratioLoans.nativeElement.style.color = 'rgb(223, 52, 52)';
         this.riskTextLoans.nativeElement.style.color = 'rgb(223, 52, 52)';
         this.riskTextLoans.nativeElement.innerText = 'Hög';
+        this.riskTextLoansAcc.nativeElement.style.color = 'rgb(223, 52, 52)';
+        this.riskTextLoansAcc.nativeElement.innerText = 'Hög';
         this.progressLoans = "100";
         this.progressColor = "warn"
       }
@@ -186,22 +198,28 @@ export class BrfDashboardComponent implements OnInit {
         this.ratioSavings.nativeElement.style.color = 'rgb(223, 52, 52)';
         this.riskTextSavings.nativeElement.style.color = 'rgb(223, 52, 52)';
         this.riskTextSavings.nativeElement.innerText = 'Låg';
+        this.riskTextSavingsAcc.nativeElement.style.color = 'rgb(223, 52, 52)';
+        this.riskTextSavingsAcc.nativeElement.innerText = 'Låg';
         this.progressSavings = "25";
         this.progressSavingsColor = "warn"
 
       }
       else if (responseData.proportionOfAssociationSavings > 100 && responseData.proportionOfAssociationSavings < 150) {
 
-        this.ratioSavings.nativeElement.style.color = 'rgb(245, 137, 66)';
-        this.riskTextSavings.nativeElement.style.color = 'rgb(245, 137, 66)';
+        this.ratioSavings.nativeElement.style.color = 'rgb(230, 100, 95)';
+        this.riskTextSavings.nativeElement.style.color = 'rgb(230, 100, 95)';
         this.riskTextSavings.nativeElement.innerText = 'Låg till måttlig';
+        this.riskTextSavingsAcc.nativeElement.style.color = 'rgb(230, 100, 95)';
+        this.riskTextSavingsAcc.nativeElement.innerText = 'Låg till måttlig';
         this.progressSavings = "50";
         this.progressSavingsColor = "accent"
       }
       else if (responseData.proportionOfAssociationSavings >= 150 && responseData.proportionOfAssociationSavings < 200) {
-        this.ratioSavings.nativeElement.style.color = 'rgb(97, 97, 192)';
-        this.riskTextSavings.nativeElement.style.color = 'rgb(97, 97, 192)';
+        this.ratioSavings.nativeElement.style.color = 'rgb(230, 100, 95)';
+        this.riskTextSavings.nativeElement.style.color = 'rgb(230, 100, 95)';
         this.riskTextSavings.nativeElement.innerText = 'Måttlig till hög';
+        this.riskTextSavingsAcc.nativeElement.style.color = 'rgb(230, 100, 95)';
+        this.riskTextSavingsAcc.nativeElement.innerText = 'Måttlig till hög';
         this.progressSavings = "75";
         this.progressSavingsColor = "accent"
       }
@@ -209,6 +227,8 @@ export class BrfDashboardComponent implements OnInit {
         this.ratioSavings.nativeElement.style.color = 'rgb(100, 192, 88)';
         this.riskTextSavings.nativeElement.style.color = 'rgb(100, 192, 88)';
         this.riskTextSavings.nativeElement.innerText = 'Hög';
+        this.riskTextSavingsAcc.nativeElement.style.color = 'rgb(100, 192, 88)';
+        this.riskTextSavingsAcc.nativeElement.innerText = 'Hög';
         this.progressSavings = "100";
         this.progressSavingsColor = "primary"
       }
@@ -221,6 +241,8 @@ export class BrfDashboardComponent implements OnInit {
         this.ratioOperatingFee.nativeElement.style.color = 'rgb(100, 192, 88)';
         this.riskTextOperatingFee.nativeElement.style.color = 'rgb(100, 192, 88)';
         this.riskTextOperatingFee.nativeElement.innerText = 'Låg';
+        this.riskTextOperatingFeeAcc.nativeElement.style.color = 'rgb(100, 192, 88)';
+        this.riskTextOperatingFeeAcc.nativeElement.innerText = 'Låg';
         this.progressOperatingFee = "25";
         this.progressOperatingFeeColor = "primary"
 
@@ -229,13 +251,17 @@ export class BrfDashboardComponent implements OnInit {
         this.ratioOperatingFee.nativeElement.style.color = 'rgb(97, 97, 192)';
         this.riskTextOperatingFee.nativeElement.innerText = 'Låg till måttlig';
         this.riskTextOperatingFee.nativeElement.style.color = 'rgb(97, 97, 192)';
+        this.riskTextOperatingFeeAcc.nativeElement.innerText = 'Låg till måttlig';
+        this.riskTextOperatingFeeAcc.nativeElement.style.color = 'rgb(97, 97, 192)';
         this.progressOperatingFee = "50";
         this.progressOperatingFeeColor = "accent"
       }
       else if (responseData.operatingCostSqm >= 450 && responseData.operatingCostSqm < 550) {
-        this.ratioOperatingFee.nativeElement.style.color = 'rgb(245, 137, 66)';
+        this.ratioOperatingFee.nativeElement.style.color = 'rgb(230, 100, 95)';
         this.riskTextOperatingFee.nativeElement.innerText = 'Måttlig till hög';
-        this.riskTextOperatingFee.nativeElement.style.color = 'rgb(245, 137, 66)';
+        this.riskTextOperatingFee.nativeElement.style.color = 'rgb(230, 100, 95)';
+        this.riskTextOperatingFeeAcc.nativeElement.innerText = 'Måttlig till hög';
+        this.riskTextOperatingFeeAcc.nativeElement.style.color = 'rgb(230, 100, 95)';
         this.progressOperatingFee = "75";
         this.progressOperatingFeeColor = "accent"
       }
@@ -243,6 +269,8 @@ export class BrfDashboardComponent implements OnInit {
         this.ratioOperatingFee.nativeElement.style.color = 'rgb(223, 52, 52)';
         this.riskTextOperatingFee.nativeElement.innerText = 'Hög';
         this.riskTextOperatingFee.nativeElement.style.color = 'rgb(223, 52, 52)';
+        this.riskTextOperatingFeeAcc.nativeElement.innerText = 'Hög';
+        this.riskTextOperatingFeeAcc.nativeElement.style.color = 'rgb(223, 52, 52)';
         this.progressOperatingFee = "100";
         this.progressOperatingFeeColor = "warn"
       }
@@ -254,15 +282,19 @@ export class BrfDashboardComponent implements OnInit {
         this.ratioAnnualFeeSqm.nativeElement.style.color = 'rgb(100, 192, 88)';
         this.riskTextAnnualFeeSqm.nativeElement.style.color = 'rgb(100, 192, 88)';
         this.riskTextAnnualFeeSqm.nativeElement.innerText = 'Låg';
+        this.riskTextAnnualFeeSqmAcc.nativeElement.style.color = 'rgb(100, 192, 88)';
+        this.riskTextAnnualFeeSqmAcc.nativeElement.innerText = 'Låg';
         this.progressAnnualFeeSqm = "25";
         this.progressAnnualFeeSqmColor = "primary"
 
       }
       else if (responseData.annualFeeSqm > 325 && responseData.annualFeeSqm < 650) {
 
-        this.ratioAnnualFeeSqm.nativeElement.style.color = 'rgb(97, 97, 192)';
+        this.ratioAnnualFeeSqm.nativeElement.style.color = 'rgb(230, 100, 95)';
         this.riskTextAnnualFeeSqm.nativeElement.innerText = 'Låg till måttlig';
-        this.riskTextAnnualFeeSqm.nativeElement.style.color = 'rgb(97, 97, 192)';
+        this.riskTextAnnualFeeSqm.nativeElement.style.color = 'rgb(230, 100, 95)';
+        this.riskTextAnnualFeeSqmAcc.nativeElement.innerText = 'Låg till måttlig';
+        this.riskTextAnnualFeeSqmAcc.nativeElement.style.color = 'rgb(230, 100, 95)';
         this.progressAnnualFeeSqm = "50";
         this.progressAnnualFeeSqmColor = "accent"
 
@@ -270,9 +302,11 @@ export class BrfDashboardComponent implements OnInit {
 
       }
       else if (responseData.annualFeeSqm >= 650 && responseData.annualFeeSqm < 900) {
-        this.ratioAnnualFeeSqm.nativeElement.style.color = 'rgb(245, 137, 66)';
+        this.ratioAnnualFeeSqm.nativeElement.style.color = 'rgb(230, 100, 95)';
         this.riskTextAnnualFeeSqm.nativeElement.innerText = 'Måttlig till hög';
-        this.riskTextAnnualFeeSqm.nativeElement.style.color = 'rgb(245, 137, 66)';
+        this.riskTextAnnualFeeSqm.nativeElement.style.color = 'rgb(230, 100, 95)';
+        this.riskTextAnnualFeeSqmAcc.nativeElement.innerText = 'Måttlig till hög';
+        this.riskTextAnnualFeeSqmAcc.nativeElement.style.color = 'rgb(230, 100, 95)';
         this.progressAnnualFeeSqm = "75";
         this.progressAnnualFeeSqmColor = "accent"
       }
@@ -280,6 +314,8 @@ export class BrfDashboardComponent implements OnInit {
         this.ratioAnnualFeeSqm.nativeElement.style.color = 'rgb(223, 52, 52)';
         this.riskTextAnnualFeeSqm.nativeElement.innerText = 'Hög';
         this.riskTextAnnualFeeSqm.nativeElement.style.color = 'rgb(223, 52, 52)';
+        this.riskTextAnnualFeeSqmAcc.nativeElement.innerText = 'Hög';
+        this.riskTextAnnualFeeSqmAcc.nativeElement.style.color = 'rgb(223, 52, 52)';
         this.progressAnnualFeeSqm = "100";
         this.progressAnnualFeeSqmColor = "warn"
       }
