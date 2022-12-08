@@ -1,1 +1,74 @@
-<p>feedback works!</p>
+<!--div class="content" style="padding: 100px; background-color: crimson;">
+    <button mat-icon-button [color]="color" *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i"
+        (click)="onClick(i+1)" [matTooltip]="ratingId" matTooltipPosition="above">
+        <mat-icon>
+            {{showIcon(i)}}
+        </mat-icon>
+    </button>
+    <mat-error *ngIf="starCount == null || starCount == 0">
+        Star count is <strong>required</strong> and cannot be zero
+    </mat-error>
+    <p class="body-2">
+        Your rated <span class="body-2">{{rating}}</span> / <span class="body-2">{{starCount}}</span>
+    </p-->
+    <div class="background"
+        style="background-image: url('../../../assets/img/oakLeafBackground.jpg'); background-size:cover;">
+        <div class="sectionOne">
+            <div class="card-overlay">
+                <div class="card-content" style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: rgb(246, 240, 240);
+                    border-radius: var(--sw-br4); padding: var(--sw-pd4);">
+                    <div class="headers">
+                        <h3>Vänligen lämna omdöme<span></span></h3>
+                        <h3><span></span></h3>
+                        <br />
+                        <form #feedbackForm="ngForm" (ngSubmit)="onFeedback(feedbackForm)">
+                            <input type="hidden" id="id" name="name" [(ngModel)]="feedback.id">
+                            <input type="hidden" id="feedbackAt" name="feedbackAt" [(ngModel)]="feedback.feedbackAt">
+
+                            <div class="description"
+                                style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
+                                <textarea name="statement" id="statement" [(ngModel)]="feedback.statement" cols="30"
+                                    rows="10"
+                                    placeholder="Vi uppskattar om du kan ta dig 2 minuter att ge oss feedback om vad du tyckte om den här tjänsten."></textarea>
+                            </div>
+                            <input type="hidden" id="id" name="name" value="3" [(ngModel)]="feedback.rating">
+                            <div class="center">
+                                <div class="box box-large centered-column">
+                        
+                                    <div class="rating">
+                                        <img id="1" label="rated" src="../../../assets/img/star-gray.png" onclick="ratingOnClick(this)" onmouseover="hover(this.id)"
+                                            onmouseout="unhover()">
+                                        <img id="2" label="rated" src="../../../assets/img/star-gray.png" onclick="ratingOnClick(this)" onmouseover="hover(this.id)"
+                                            onmouseout="unhover()">
+                                        <img id="3" label="unrated" src="../../../assets/img/star-gray.png" onclick="ratingOnClick(this)"
+                                            onmouseover="hover(this.id)" onmouseout="unhover()">
+                                        <img id="4" label="unrated" src="../../../assets/img/star-gray.png" onclick="ratingOnClick(this)"
+                                            onmouseover="hover(this.id)" onmouseout="unhover()">
+                                        <img id="5" label="unrated" src="../../../assets/img/star-gray.png" onclick="ratingOnClick(this)"
+                                            onmouseover="hover(this.id)" onmouseout="unhover()">
+                                    </div>
+                                    <div id="result" class="result" onclick="resetStars()">
+                                        
+                                    </div>
+                        
+                                </div>
+                            </div>
+                            <div class="actions justify-content-evenly" style="display: flex; color: white;">
+                                <button mat-raised-button routerLink="/brf-dashboard">
+                                    Nej tack!
+                                </button>
+                                <button mat-raised-button type="submit">
+                                    Skicka
+                                </button>
+                            </div>
+                            <hr>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
