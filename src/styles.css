@@ -8,6 +8,10 @@ body {
     font-family: 'poppins', sans-serif; 
 }
 
+html::-webkit-scrollbar {
+    display: none;
+}
+
 :root {
     --sw-primary: #ff9100;
     --sw-light-bg: rgb(241, 241, 241);

@@ -6,3 +6,7 @@
     background-color: var(--sw-light-bg);
     font-family: 'poppins', sans-serif;
 }
+
+.body::-webkit-scrollbar {
+    display: none;
+}
