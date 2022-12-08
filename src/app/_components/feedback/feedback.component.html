@@ -11,64 +11,67 @@
     <p class="body-2">
         Your rated <span class="body-2">{{rating}}</span> / <span class="body-2">{{starCount}}</span>
     </p-->
-    <div class="background"
-        style="background-image: url('../../../assets/img/oakLeafBackground.jpg'); background-size:cover;">
-        <div class="sectionOne">
-            <div class="card-overlay">
-                <div class="card-content" style="
+<div class="background"
+    style="background-image: url('../../../assets/img/oakLeafBackground.jpg'); background-size:cover;">
+    <div class="sectionOne">
+        <div class="card-overlay">
+            <div class="card-content" style="
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     background-color: rgb(246, 240, 240);
                     border-radius: var(--sw-br4); padding: var(--sw-pd4);">
-                    <div class="headers">
-                        <h3>Vänligen lämna omdöme<span></span></h3>
-                        <h3><span></span></h3>
-                        <br />
-                        <form #feedbackForm="ngForm" (ngSubmit)="onFeedback(feedbackForm)">
-                            <input type="hidden" id="id" name="name" [(ngModel)]="feedback.id">
-                            <input type="hidden" id="feedbackAt" name="feedbackAt" [(ngModel)]="feedback.feedbackAt">
+                <div class="headers">
+                    <h3>Vänligen lämna omdöme<span></span></h3>
+                    <h3><span></span></h3>
+                    <br />
+                    <form #feedbackForm="ngForm" (ngSubmit)="onFeedback(feedbackForm)">
+                        <input type="hidden" id="id" name="name" [(ngModel)]="feedback.id">
+                        <input type="hidden" id="feedbackAt" name="feedbackAt" [(ngModel)]="feedback.feedbackAt">
 
-                            <div class="description"
-                                style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
-                                <textarea name="statement" id="statement" [(ngModel)]="feedback.statement" cols="30"
-                                    rows="10"
-                                    placeholder="Vi uppskattar om du kan ta dig 2 minuter att ge oss feedback om vad du tyckte om den här tjänsten."></textarea>
-                            </div>
-                            <input type="hidden" id="id" name="name" value="3" [(ngModel)]="feedback.rating">
-                            <div class="center">
-                                <div class="box box-large centered-column">
-                        
-                                    <div class="rating">
-                                        <img id="1" label="rated" src="../../../assets/img/star-gray.png" onclick="ratingOnClick(this)" onmouseover="hover(this.id)"
-                                            onmouseout="unhover()">
-                                        <img id="2" label="rated" src="../../../assets/img/star-gray.png" onclick="ratingOnClick(this)" onmouseover="hover(this.id)"
-                                            onmouseout="unhover()">
-                                        <img id="3" label="unrated" src="../../../assets/img/star-gray.png" onclick="ratingOnClick(this)"
-                                            onmouseover="hover(this.id)" onmouseout="unhover()">
-                                        <img id="4" label="unrated" src="../../../assets/img/star-gray.png" onclick="ratingOnClick(this)"
-                                            onmouseover="hover(this.id)" onmouseout="unhover()">
-                                        <img id="5" label="unrated" src="../../../assets/img/star-gray.png" onclick="ratingOnClick(this)"
-                                            onmouseover="hover(this.id)" onmouseout="unhover()">
+                        <div class="description"
+                            style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
+                            <textarea name="statement" id="statement" [(ngModel)]="feedback.statement" cols="30"
+                                rows="10" placeholder="Kommentar">
+                                </textarea>
+                        </div>
+                        <div class="center">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Select</mat-label>
+                                <mat-select name="rating" id="rating" [(ngModel)]="feedback.rating">
+                                    <mat-option value="1">1</mat-option>
+                                    <mat-option value="2">2</mat-option>
+                                    <mat-option value="3">3</mat-option>
+                                    <mat-option value="4">4</mat-option>
+                                    <mat-option value="5">5</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <!--div class="box box-large centered-column">
+                                    {{value}}
+                                    <div class="slider">
+                                        <div>
+                                            <label class="example-value-label bold-text-small">{{value}}</label>
+                                        </div>
+                                        <mat-slider [(ngModel)]="value" id="interest-slider" class="example-margin" thumbLabel
+                                            [max]="max" [min]="min" [vertical]="false" [step]="step"
+                                            (valueChange)="onRating()">
+                                        </mat-slider>
                                     </div>
-                                    <div id="result" class="result" onclick="resetStars()">
-                                        
-                                    </div>
                         
-                                </div>
-                            </div>
-                            <div class="actions justify-content-evenly" style="display: flex; color: white;">
-                                <button mat-raised-button routerLink="/brf-dashboard">
-                                    Nej tack!
-                                </button>
-                                <button mat-raised-button type="submit">
-                                    Skicka
-                                </button>
-                            </div>
-                            <hr>
-                        </form>
-                    </div>
+                                </div-->
+                        </div>
+                        <div class="actions justify-content-evenly" style="display: flex; color: white;">
+                            <button mat-raised-button routerLink="/brf-dashboard">
+                                Nej tack!
+                            </button>
+                            <button mat-raised-button type="submit">
+                                Skicka
+                            </button>
+                        </div>
+                        <hr>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>

@@ -7,6 +7,7 @@ import { BrfCalculatorService } from 'src/app/_services/brf-calculator.service';
 import { BrfParams } from '../../_models/brf-params';
 import { brfDoughnutChartOptions } from './brf-doughnut-chart';
 import { NgxPrintElementService } from 'ngx-print-element';
+
 @Component({
   selector: 'app-brf-dashboard',
   templateUrl: './brf-dashboard.component.html',
