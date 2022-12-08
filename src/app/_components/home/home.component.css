@@ -6,7 +6,6 @@
 }
 
 .card-overlay {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,10 +16,6 @@
 
 .card-content {
     display: flex;
-    height: 500px;
-    width: 500px;
-
-
 }
 
 button {
