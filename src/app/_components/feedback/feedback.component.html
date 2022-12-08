@@ -23,8 +23,7 @@
                     border-radius: var(--sw-br4); padding: var(--sw-pd4);">
                 <div class="headers">
                     <h3>Vänligen lämna omdöme<span></span></h3>
-                    <h3><span></span></h3>
-                    <br />
+                    <br/>
                     <form #feedbackForm="ngForm" (ngSubmit)="onFeedback(feedbackForm)">
                         <input type="hidden" id="id" name="name" [(ngModel)]="feedback.id">
                         <input type="hidden" id="feedbackAt" name="feedbackAt" [(ngModel)]="feedback.feedbackAt">
@@ -36,8 +35,9 @@
                                 </textarea>
                         </div>
                         <div class="center">
+                            <div class="drop-down">
                             <mat-form-field appearance="fill">
-                                <mat-label>Select</mat-label>
+                                <mat-label>Betyg</mat-label>
                                 <mat-select name="rating" id="rating" [(ngModel)]="feedback.rating">
                                     <mat-option value="1">1</mat-option>
                                     <mat-option value="2">2</mat-option>
@@ -46,6 +46,7 @@
                                     <mat-option value="5">5</mat-option>
                                 </mat-select>
                             </mat-form-field>
+                        </div>
                             <!--div class="box box-large centered-column">
                                     {{value}}
                                     <div class="slider">
@@ -61,10 +62,10 @@
                                 </div-->
                         </div>
                         <div class="actions justify-content-evenly" style="display: flex; color: white;">
-                            <button mat-raised-button routerLink="/brf-dashboard">
+                            <button mat-raised-button routerLink="/home">
                                 Nej tack!
                             </button>
-                            <button mat-raised-button type="submit">
+                            <button mat-raised-button type="submit" routerLink="/home">
                                 Skicka
                             </button>
                         </div>
