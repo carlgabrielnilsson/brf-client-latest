@@ -51,7 +51,8 @@ hr {
     flex: 1 1 auto;
 }
 
-#card-group-two, 
+#card-group-one,
+#card-group-two,
 #card-group-three,
 #card-group-four,
 #toolbar {
@@ -85,7 +86,7 @@ hr {
 }
 
 .toolbar-buttons {
-    background-color: rgb(42, 203, 231)!important;
+    background-color: rgb(42, 203, 231) !important;
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: 1px;
@@ -145,7 +146,6 @@ mat-slider input {
     margin: 10px;
     height: 90%;
     width: 100%;
-
 }
 
 #card-group-one::-webkit-scrollbar {
@@ -189,6 +189,7 @@ mat-slider input {
     height: 100%;
     width: 100%;
     gap: 15px;
+    margin-right: 7.5px;
 }
 
 #card-group-three .right {
@@ -196,11 +197,11 @@ mat-slider input {
     height: 100%;
     width: 100%;
     gap: 15px;
+    margin-left: 7.5px;
 }
 
 #card-group-four {
     display: grid;
-    height: 100%;
     grid-area: group-four;
     border-radius: var(--sw-br4);
     box-shadow: var(--sw-bs-medium);
@@ -213,8 +214,9 @@ mat-slider input {
 
 #card-group-four .list {
     display: flex;
-    height: 200px;
+    height: fit-content;
     flex-direction: column;
+    margin-top: 15px;
 }
 
 .risk-list {
@@ -307,15 +309,6 @@ mat-progress-bar {
     padding: var(--sw-pd4);
 }
 
-
-
-
-
-
-
-
-
-
 .modal-header {
     position: sticky;
     z-index: 100;
@@ -396,4 +389,97 @@ mat-progress-bar {
     width: 100%;
     height: 100%;
     padding-bottom: 30px;
+}
+
+@media (max-width:1286px) and (min-width:780px) {
+    .container-fluid {
+        display: block;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 0.2fr repeat(5, 1fr);
+        grid-template-areas:
+            "toolbar toolbar"
+            "group-three group-three"
+            "group-three group-three"
+            "group-two group-two"
+            "group-one  group-four"
+
+        ;
+        padding-top: 10px !important;
+        overflow: scroll;
+    }
+
+    .container-fluid::-webkit-scrollbar {
+        display: none;
+    }
+
+    #toolbar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    #card-group-one {
+        height: calc(100% - 60px);
+        overflow: none;
+    }
+
+    #card-group-two {
+        overflow: none;
+    }
+
+    #card-group-three {
+        overflow: none;
+    }
+
+    #card-group-four {
+        margin-bottom: 15px;
+    }
+
+
+}
+
+@media (max-width:780px) {
+    .container-fluid {
+        display: block;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 0.2fr repeat(5, 1fr);
+        grid-template-areas:
+            "toolbar toolbar"
+            "group-three group-three"
+            "group-three group-three"
+            "group-two group-two"
+            "group-one  group-four"
+
+        ;
+        padding-top: 10px !important;
+        overflow: scroll;
+    }
+
+    .container-fluid::-webkit-scrollbar {
+        display: none;
+    }
+
+    #toolbar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    #card-group-one {
+        height: calc(100% - 60px);
+        overflow: none;
+    }
+
+    #card-group-two {
+        overflow: none;
+    }
+
+    #card-group-three {
+        overflow: none;
+    }
+    #card-group-four {
+        margin-bottom: 15px;
+    }
+
+
 }
