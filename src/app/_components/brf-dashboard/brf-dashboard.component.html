@@ -720,7 +720,7 @@
                                     <mat-form-field appearance="fill">
                                         <mat-label for="proportionArea">Lägenhetens andel</mat-label>
                                         <input #input1 matInput type="number" [(ngModel)]="brfParams.proportion"
-                                            name="proportion" id="proportion" min="0" max="1" step="0.001" required>
+                                            name="proportion" id="proportion" min="0.01525" max="1" step="0.001" required>
                                     </mat-form-field>
                                     <span  *ngIf="input1.value > '1'" style="margin-top: 10px; margin-bottom: 10px; color: rgb(248, 51, 51);">Andel av föreningen kan inte överstiga 1</span>
 
@@ -732,7 +732,7 @@
                                     <mat-form-field appearance="fill">
                                         <mat-label for="proportionArea">Lägenhetens boyta</mat-label>
                                         <input matInput type="number" [(ngModel)]="brfParams.residenceArea"
-                                            name="residenceArea" id="residenceArea" min="0" required>
+                                            name="residenceArea" id="residenceArea" min="45" required>
                                     </mat-form-field>
                                     <div class="description">
                                         <p>
@@ -742,7 +742,7 @@
                                     <mat-form-field appearance="fill">
                                         <mat-label for="proportionArea">Månadsavgift</mat-label>
                                         <input matInput type="number" [(ngModel)]="brfParams.monthlyFee"
-                                            name="monthlyFee" id="monthlyFee" min="0" required>
+                                            name="monthlyFee" id="monthlyFee" min="2856" required>
                                     </mat-form-field>
                                 </div>
                                 <div>
@@ -766,7 +766,7 @@
                                     <mat-form-field appearance="fill">
                                         <mat-label for="loans">Föreningens lån</mat-label>
                                         <input matInput type="number" [(ngModel)]="brfParams.loans" name="loans"
-                                            id="loans" min="0" required>
+                                            id="loans" min="35982500" required>
                                     </mat-form-field>
 
                                     <div class="description">
@@ -777,7 +777,7 @@
                                     <mat-form-field appearance="fill">
                                         <mat-label for="proportionArea">Amortering</mat-label>
                                         <input matInput type="number" [(ngModel)]="brfParams.amortization"
-                                            name="amortization" id="amortization" min="0" required>
+                                            name="amortization" id="amortization" min="3700000" required>
                                     </mat-form-field>
                                     <div class="description">
                                         <p>
@@ -787,7 +787,7 @@
                                     <mat-form-field appearance="fill">
                                         <mat-label for="proportionArea">Avskrivningar</mat-label>
                                         <input matInput type="number" [(ngModel)]="brfParams.depreciation"
-                                            name="depreciation" id="depreciation" min="0" required>
+                                            name="depreciation" id="depreciation" min="2183183" required>
                                     </mat-form-field>
 
                                     <div class="description">
@@ -798,7 +798,7 @@
                                     <mat-form-field appearance="fill">
                                         <mat-label for="proportionArea">Årets Resultat</mat-label>
                                         <input matInput type="number" [(ngModel)]="brfParams.result" name="result"
-                                            id="result" required>
+                                            min="-1227033" max="-1227033" id="result" required>
                                     </mat-form-field>
                                 </div>
 
@@ -824,7 +824,7 @@
                                     <mat-form-field appearance="fill">
                                         <mat-label for="proportionArea">Totala intäkter</mat-label>
                                         <input matInput type="number" [(ngModel)]="brfParams.totalRevenue"
-                                            name="totalRevenue" id="totalRevenue" min="0" required>
+                                            name="totalRevenue" id="totalRevenue" min="3105260" required>
                                     </mat-form-field>
                                     <div class="description">
                                         <p>
@@ -834,7 +834,7 @@
                                     <mat-form-field appearance="fill">
                                         <mat-label for="proportionArea">Kommersiella intäkter</mat-label>
                                         <input matInput type="number" [(ngModel)]="brfParams.commercialRevenue"
-                                            name="commercialRevenue" id="commercialRevenue" min="0" required>
+                                            name="commercialRevenue" id="commercialRevenue" min="310526" required>
                                     </mat-form-field>
                                 </div>
                                 <div class="description">
@@ -845,7 +845,7 @@
                                 <mat-form-field appearance="fill">
                                     <mat-label for="proportionArea">Föreningens kostnader</mat-label>
                                     <input matInput type="number" [(ngModel)]="brfParams.miscellaneousCosts"
-                                        name="miscellaneousCosts" id="miscellaneousCosts" min="0" required>
+                                        name="miscellaneousCosts" id="miscellaneousCosts" min="4827432" required>
                                 </mat-form-field>
                                 <div class="description">
                                     <p>
@@ -855,7 +855,7 @@
                                 <mat-form-field appearance="fill">
                                     <mat-label for="proportionArea">Kapitalkostnader</mat-label>
                                     <input matInput type="number" [(ngModel)]="brfParams.capitalCosts"
-                                        name="capitalCosts" id="capitalCosts" min="0" required>
+                                        name="capitalCosts" id="capitalCosts" min="468365" required>
                                 </mat-form-field>
                                 <div>
                                     <button mat-button matStepperNext type="button"  [disabled]="!brfParams.totalRevenue || !brfParams.commercialRevenue || !brfParams.miscellaneousCosts || !brfParams.capitalCosts">Nästa</button>
