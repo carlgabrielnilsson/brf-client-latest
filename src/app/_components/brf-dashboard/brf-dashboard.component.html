@@ -18,11 +18,16 @@
             <div class="card-content">
                 <div class="card-header">
                     <h2>Ränta / Månadsavgift</h2>
-                    <button mat-mini-fab class="question">
-                        <mat-icon>
-                            question_mark
-                        </mat-icon>
-                    </button>
+                    <div class="tooltip-calculation-info">
+
+                        <button class="question" mat-mini-fab>
+                            <a data-bs-toggle="modal" href="#exampleModalToggle" role="button">
+                                <mat-icon>
+                                    question_mark
+                                </mat-icon>
+                            </a>
+                        </button>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="slider">
@@ -33,7 +38,6 @@
                         <mat-slider [(ngModel)]="value" id="interest-slider" class="example-margin" thumbLabel
                             [max]="max" [min]="min" [vertical]="true" [step]="step"
                             (valueChange)="whatIfInterestIncr()">
-
                         </mat-slider>
                     </div>
 
@@ -66,8 +70,12 @@
             <div class="card-content">
                 <div class="card-header">
                     <h2>BRF resultat / boyta</h2>
-                    <button mat-mini-fab class="question">
-                        <mat-icon>question_mark</mat-icon>
+                    <button class="question" mat-mini-fab>
+                        <a data-bs-toggle="modal" href="#exampleModalToggle2" role="button">
+                            <mat-icon>
+                                question_mark
+                            </mat-icon>
+                        </a>
                     </button>
                 </div>
 
@@ -88,8 +96,12 @@
             <div class="card-content">
                 <div class="card-header">
                     <h2>Andel av BRF Amortering</h2>
-                    <button mat-mini-fab class="question">
-                        <mat-icon>question_mark</mat-icon>
+                    <button class="question" mat-mini-fab>
+                        <a data-bs-toggle="modal" href="#exampleModalToggle3" role="button">
+                            <mat-icon>
+                                question_mark
+                            </mat-icon>
+                        </a>
                     </button>
                 </div>
 
@@ -115,8 +127,12 @@
                 <div class="card-content">
                     <div class="card-header">
                         <h2>Årsavgift / boyta</h2>
-                        <button mat-mini-fab class="question">
-                            <mat-icon>question_mark</mat-icon>
+                        <button class="question" mat-mini-fab>
+                            <a data-bs-toggle="modal" href="#exampleModalToggle5" role="button">
+                                <mat-icon>
+                                    question_mark
+                                </mat-icon>
+                            </a>
                         </button>
                     </div>
 
@@ -140,8 +156,12 @@
                 <div class="card-content">
                     <div class="card-header">
                         <h2>Driftskostnad / boyta</h2>
-                        <button mat-mini-fab class="question">
-                            <mat-icon>question_mark</mat-icon>
+                        <button class="question" mat-mini-fab>
+                            <a data-bs-toggle="modal" href="#exampleModalToggle4" role="button">
+                                <mat-icon>
+                                    question_mark
+                                </mat-icon>
+                            </a>
                         </button>
                     </div>
 
@@ -166,8 +186,12 @@
                 <div class="card-content">
                     <div class="card-header">
                         <h2>Andel av BRF sparande</h2>
-                        <button mat-mini-fab class="question">
-                            <mat-icon>question_mark</mat-icon>
+                        <button class="question" mat-mini-fab>
+                            <a data-bs-toggle="modal" href="#exampleModalToggle6" role="button">
+                                <mat-icon>
+                                    question_mark
+                                </mat-icon>
+                            </a>
                         </button>
                     </div>
 
@@ -191,8 +215,12 @@
                 <div class="card-content">
                     <div class="card-header">
                         <h2>Andel av BRF Lån</h2>
-                        <button mat-mini-fab class="question">
-                            <mat-icon>question_mark</mat-icon>
+                        <button class="question" mat-mini-fab>
+                            <a data-bs-toggle="modal" href="#exampleModalToggle7" role="button">
+                                <mat-icon>
+                                    question_mark
+                                </mat-icon>
+                            </a>
                         </button>
                     </div>
                     <div class="card-body p-3">
@@ -217,8 +245,12 @@
             <div class="card-content">
                 <div class="card-header">
                     <h2>Andel kommersiella intäkter</h2>
-                    <button mat-mini-fab class="question">
-                        <mat-icon>question_mark</mat-icon>
+                    <button class="question" mat-mini-fab>
+                        <a data-bs-toggle="modal" href="#exampleModalToggle8" role="button">
+                            <mat-icon>
+                                question_mark
+                            </mat-icon>
+                        </a>
                     </button>
                 </div>
 
@@ -247,7 +279,7 @@
                                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
                                         <div class="d-flex w-100">
-                                            <h3 class="bold-text-small">Din nivå är</h3>
+                                            <!--h3 class="bold-text-small">Din nivå är</h3-->
                                             <h3 #riskTextAnnualFeeSqm class="risk-limit-text"></h3>
                                         </div>
                                         ≤325 kr/kvm (låg) <br>
@@ -270,7 +302,7 @@
                                     aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
                                         <div class="d-flex w-100">
-                                            <h3 class="bold-text-small">Din nivå är</h3>
+                                            <!--h3 class="bold-text-small">Din nivå är</h3-->
                                             <h3 #ratioOperatingFee class="risk-limit-text"></h3>
                                         </div>
                                         ≤ 375 kr/kvm (låg) <br>
@@ -293,13 +325,13 @@
                                     aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
                                         <div class="d-flex w-100">
-                                            <h3 class="bold-text-small">Din nivå är</h3>
+                                            <!--h3 class="bold-text-small">Din nivå är</h3-->
                                             <h3 #riskTextSavings class="risk-limit-text"></h3>
                                         </div>
-                                        ≤100 kr/kvm (låg)
-                                        >100≤150 kr/kvm (låg till måttlig)
-                                        >150≤200 kr/kvm (måttlig till hög)
-                                        >200 kr/kvm (hög)
+                                        ≤100 kr/kvm (låg) <br>
+                                        >100≤150 kr/kvm (låg till måttlig) <br>
+                                        >150≤200 kr/kvm (måttlig till hög) <br>
+                                        >200 kr/kvm (hög) <br>
                                     </div>
                                 </div>
                             </div>
@@ -316,7 +348,7 @@
                                     aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
                                         <div class="d-flex w-100">
-                                            <h3 class="bold-text-small">Din nivå är</h3>
+                                            <!--h3 class="bold-text-small">Din nivå är</h3-->
                                             <h3 #riskTextLoans class="risk-limit-text"></h3>
                                         </div>
                                         ≤3000 kr/kvm (låg) <br>
@@ -859,4 +891,141 @@
     </div>
 
 
+</div>
+
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+                    Hur påverkas månadsavgiften om räntan stiger?
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Lägenhetens andelstal * (Bostadsrättsföreningens lån * 0.01) / 12
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">
+                    BRF resultat / boyta
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Lägenhetens andelstal * bostadsrättsföreningens resultat / lägenhetens boyta
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModalToggle3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel3">
+                    Andel av BRF amorteringar
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Lägenhetens andelstal * bostadsrättsföreningens amorteringar / lägenhetens boyta
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModalToggle4" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel4">
+                    Driftskostnad / boyta
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Lägenhetens andelstal * (bostadsrättsföreningens samtliga kostnader) - (avskrivningar +
+                kapitalkostnader) / lägenhetens boyta
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModalToggle5" aria-hidden="true" aria-labelledby="exampleModalToggleLabel5"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel5">
+                    Årsavgift / boyta
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Månadsavgiften * 12 / lägenhetens boyta
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModalToggle6" aria-hidden="true" aria-labelledby="exampleModalToggleLabel6"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel6">
+                    Andel av BRF sparande
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Lägenhetens andelstal * (bostadsrättsföreningens avskrivningar + årets resultat) / lägenhetens boyta
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModalToggle7" aria-hidden="true" aria-labelledby="exampleModalToggleLabel7"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel7">
+                    Andel av BRF lån
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Lägenhetens andelstal * bostadsrättsföreningens lån / lägenhetens boyta
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModalToggle8" aria-hidden="true" aria-labelledby="exampleModalToggleLabel8"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel8">
+                    Andel kommersiella intäkter
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                (Totala intäkter / Kommersiella intäkter) * 100
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,7 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Renderer2, OnChanges } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Feedback } from 'src/app/_models/feedback';
 import { FeedbackService } from 'src/app/_services/feedback.service';
 
@@ -15,29 +14,30 @@ export class FeedbackComponent implements OnInit {
 
   //Variables
   public feedback: Feedback = new Feedback;
-
-  //stars
-
-  @Input('rating') public rating: number = 3;
-  @Input('starCount') public starCount: number = 5;
-  @Input('color') public color: string = 'accent';
-  @Output() private ratingUpdated = new EventEmitter();
-
   public snackBarDuration: number = 2000;
-  public ratingArr = [];
 
 
+  //slider Options
+  disabled = false;
+  max = 5;
+  min = 1;
+  showTicks = false;
+  step = 1;
+  thumbLabel = false;
+  value = 1;
+  //For SLider
 
   constructor(
     private feedbackService: FeedbackService,
-    private snackBar: MatSnackBar
+    private rendered: Renderer2
   ) { }
 
   ngOnInit(): void {
-    console.log("a " + this.starCount)
-    for (let index = 0; index < this.starCount; index++) {
-      this.ratingArr.push();
-    }
+    console.log(this.value)
+  }
+
+  ngOnChanges(): void {
+    this.onRating();
   }
 
   public onFeedback(feedbackForm: NgForm): void {
@@ -51,27 +51,33 @@ export class FeedbackComponent implements OnInit {
     })
   }
 
-  onClick(rating: number) {
-    console.log(rating)
-    this.snackBar.open('You rated ' + rating + ' / ' + this.starCount, '', {
-      duration: this.snackBarDuration
-    });
-    this.ratingUpdated.emit(rating);
-    return false;
-  }
-
-  showIcon(index: number) {
-    if (this.rating >= index + 1) {
-      return 'star';
-    } else {
-      return 'star_border';
+  public onRating(): void {
+    if (!this.value) {
+      console.log(this.value)
     }
+    this.value
+    console.log(this.value)
   }
 
-}
+  public formatLabel(value: number | null) {
+    if (!value) {
+      return 0;
+    }
 
-export enum StarRatingColor {
-  primary = "primary",
-  accent = "accent",
-  warn = "warn"
+    if (value >= 15) {
+      return Math.round(value / 1000) + 'k' + 'Im a very long label';
+    }
+
+    return value;
+  }
+
+  public hoverSlider() {
+    const thumbEle = document.querySelector('div.mat-slider-thumb-label');
+    this.rendered.setStyle(thumbEle, 'transform', 'rotate(0)');
+  }
+
+  public blurSlider() {
+    const thumbEle = document.querySelector('div.mat-slider-thumb-label');
+    this.rendered.removeStyle(thumbEle, 'transform');
+  }
 }

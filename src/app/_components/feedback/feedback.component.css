@@ -141,7 +141,28 @@ hr {
     ;
 }
 
+mat-slider input {
+    width: 20px !important;
+}
 
+::ng-deep .mat-slider-thumb-label {
+    border-radius: 8px 8px !important;
+    display: flex !important;
+    flex: 1 0 100%;
+    flex-direction: row;
+    padding-left: 6px;
+    padding-right: 6px;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    left: 20px !important;
+    width: unset !important;
+    background-color: var(--sw-bg-primary) !important;
+}
+
+::ng-deep .mat-slider-thumb-label-text {
+    transform: rotate(0) !important;
+}
 @keyframes text_reveal_box {
     50% {
         width: 100%;

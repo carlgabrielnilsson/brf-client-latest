@@ -7,6 +7,7 @@ import { BrfCalculatorService } from 'src/app/_services/brf-calculator.service';
 import { BrfParams } from '../../_models/brf-params';
 import { brfDoughnutChartOptions } from './brf-doughnut-chart';
 import { NgxPrintElementService } from 'ngx-print-element';
+
 @Component({
   selector: 'app-brf-dashboard',
   templateUrl: './brf-dashboard.component.html',
@@ -84,7 +85,7 @@ export class BrfDashboardComponent implements OnInit {
   showTicks = false;
   step = 1;
   thumbLabel = false;
-  value = 1;
+  value = 0;
   //Variables
   public responseData?: BrfParams;
   public brfParams: BrfParams = new BrfParams;
