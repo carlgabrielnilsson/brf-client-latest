@@ -38,7 +38,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { HomeComponent } from './_components/home/home.component';
 import { FeedbackComponent } from './_components/feedback/feedback.component';
 import { NavbarComponent } from './_components/navbar/navbar.component';
-import { NgxPrintModule } from 'ngx-print';
+import {NgxPrintModule} from 'ngx-print';
+
 @NgModule({
   declarations: [
     AppComponent,
