@@ -43,12 +43,12 @@ export function brfDoughnutChartOptions(x: number, x1: number, r1: number): Opti
                 data: [
                     {
                         name: '',  
-                        y: r1,
+                        y: x1,
                         color: '#fa3e89'
                     },
                     {
                         name: '',
-                        y: x1,
+                        y: (x - x1),
                         color: '#6176eb'
                     },
                 ]

@@ -4,6 +4,9 @@
   "newProjectRoot": "projects",
   "projects": {
     "se.swedbank.checklist-client": {
+      "i18n": {
+        "sourceLocale": "sv-SE"
+      },
       "projectType": "application",
       "schematics": {},
       "root": "",
