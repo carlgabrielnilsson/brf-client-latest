@@ -6,12 +6,11 @@ import { Chart } from 'angular-highcharts';
 import { BrfCalculatorService } from 'src/app/_services/brf-calculator.service';
 import { BrfParams } from '../../_models/brf-params';
 import { brfDoughnutChartOptions } from './brf-doughnut-chart';
-
-
+import { NgxPrintElementService } from 'ngx-print-element';
 @Component({
   selector: 'app-brf-dashboard',
   templateUrl: './brf-dashboard.component.html',
-  styleUrls: ['./brf-dashboard.component.css']
+  styleUrls: ['./brf-dashboard.component.css'],
 })
 export class BrfDashboardComponent implements OnInit {
 
@@ -99,13 +98,24 @@ export class BrfDashboardComponent implements OnInit {
   ratioCommercialRevenue!: number;
   doughnutChart!: Chart;
 
+
+  public config = {
+    printMode: 'template-popup',
+    popupProperties: 'toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=0,fullscreen=yes',
+    pageTitle: 'Swedbank AB (Publ)',
+    templateString: '',
+    stylesheets: [{ rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' }],
+    styles: []
+  }
+
   constructor(
     private brfService: BrfCalculatorService,
     private rendered: Renderer2,
+    public print: NgxPrintElementService
   ) { }
 
   ngOnInit(): void {
-    this.doughnutChart = new Chart(brfDoughnutChartOptions(5, 10, 20));
+    this.doughnutChart = new Chart(brfDoughnutChartOptions(0, 0, 0));
   }
 
   ngOnChanges(): void {

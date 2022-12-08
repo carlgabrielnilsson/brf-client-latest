@@ -27,7 +27,6 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatSliderModule } from '@angular/material/slider'
 import { MatStepperModule } from '@angular/material/stepper';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatRadioModule } from '@angular/material/radio';
 import { BodyComponent } from './_components/body/body.component';
 import { BrfDashboardComponent } from './_components/brf-dashboard/brf-dashboard.component';
@@ -38,8 +37,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { HomeComponent } from './_components/home/home.component';
 import { FeedbackComponent } from './_components/feedback/feedback.component';
 import { NavbarComponent } from './_components/navbar/navbar.component';
-import {NgxPrintModule} from 'ngx-print';
-
+import { NgxPrintElementModule } from 'ngx-print-element';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +71,6 @@ import {NgxPrintModule} from 'ngx-print';
     MatProgressBarModule,
     MatTooltipModule,
     ReactiveFormsModule,
-    MatDatepickerModule,
     MatSlideToggleModule,
     MatGridListModule,
     MatSortModule,
@@ -83,7 +80,7 @@ import {NgxPrintModule} from 'ngx-print';
     MatDividerModule,
     MatMenuModule,
     MatSidenavModule,
-    NgxPrintModule
+    NgxPrintElementModule,
 
   ],
   providers: [],
