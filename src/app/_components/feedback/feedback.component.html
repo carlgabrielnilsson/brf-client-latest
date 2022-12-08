@@ -25,7 +25,7 @@
                     <h3>Vänligen lämna omdöme<span></span></h3>
                     <br />
                     <form #feedbackForm="ngForm" (ngSubmit)="onFeedback(feedbackForm)">
-                        <input type="hidden" id="id" name="name" [(ngModel)]="feedback.id">
+                        <input type="hidden" id="id" name="id" [(ngModel)]="feedback.id">
                         <input type="hidden" id="feedbackAt" name="feedbackAt" [(ngModel)]="feedback.feedbackAt">
 
                         <div class="description"
@@ -64,7 +64,7 @@
                                 <button mat-raised-button routerLink="/home">
                                     Nej tack!
                                 </button>
-                                <button mat-raised-button type="submit" routerLink="/home">
+                                <button mat-raised-button type="submit">
                                     Skicka
                                 </button>
                             </div>
