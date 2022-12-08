@@ -1,3 +1,4 @@
+@import '~ngx-print-element/styles.css';
 .container-fluid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

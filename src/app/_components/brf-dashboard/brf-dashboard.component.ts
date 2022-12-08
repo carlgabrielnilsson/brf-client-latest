@@ -346,5 +346,7 @@ export class BrfDashboardComponent implements OnInit {
       'p { font-size: 1.2rem;}',
       '.row-element { display: flex; justify-content: space-between;}']
   }
+
+
 }
 

@@ -7,7 +7,7 @@
                 Ny Kalkyl
             </button>
             <span class="spacer"></span>
-            <button mat-raised-button class="toolbar-buttons d-flex justify-content-between" type="button">
+            <button mat-raised-button type="button" (click)="onPrint()" [print]="['checkList', config]">
                 <mat-icon>save</mat-icon>
                 Spara PDF
             </button>
@@ -585,206 +585,347 @@
         </div>
     </div>
 
-    <div #printContainer class="printContainer" style="display: none;">
+    
+</div>
 
-        <div id="checkList">
-            <header>
-                <h1>Checklista – köp av bostadsrätt</h1>
-            </header>
-            <br>
-            <hr>
+<div #printContainer class="printContainer" style="display: none;">
+
+
+
+    <div id="checkList">
+
+        <header>
+
+            <h1>Checklista – köp av bostadsrätt</h1>
+
+        </header>
+
+        <br>
+
+        <hr>
+
+
+
+        <div class="row-element">
+
+            <div class="utskrift" style="display: flex;">
+
+                <div>
+
+                    <p>Är bostadsrättsföreningens fastighet fullvärdeförsäkrad</p>
+
+                </div>
+
+                <input type="checkbox">
+
+                <span>Ja</span>
+
+                <input type="checkbox">
+
+                <span>Nej</span>
+
+
+
+                <div>
+
+                    <p>Har bostadsrättsföreningen en ansvarsförsäkring för styrelsen</p>
+
+                </div>
+
+
+
+                <input type="checkbox">
+
+                <span>Ja</span>
+
+                <input type="checkbox">
+
+                <span>Nej</span>
+
+                <br>
+
+                <div>
+
+                    <p>Äger bostadsföreningen marken</p>
+
+                </div>
+
+
+
+                <input type="checkbox">
+
+                <span>Ja</span>
+
+                <input type="checkbox">
+
+                <span>Nej</span>
+
+                <br>
+
+                <div>
+
+                    <p>Har föreningen tomträtt</p>
+
+                </div>
+
+
+
+                <input type="checkbox">
+
+                <span>Ja</span>
+
+                <input type="checkbox">
+
+                <span>Nej</span>
+
+                <br><br>
+
+                <div>
+
+                    <p>Finns en teknisk underhållsplan</p>
+
+                </div>
+
+
+
+                <input type="checkbox">
+
+                <span>Ja</span>
+
+                <input type="checkbox">
+
+                <span>Nej</span>
+
+                <br><br>
+
+            </div>
+        </div>
+
+        <p>
+
+            Om ja, när ska tomträttsavgälden omförhandlas: <b>{{radio1}}</b>
+
+        </p>
+
+        <p>
+
+            Bostadsrättsföreningens värdeår: <b>{{responseData?.proportionAmortization | currency: 'KR/KVM'}}</b>
+
+            <!--kr/kvm-->
+
+        </p>
+
+        <p>
+
+            Lägenhetens andelstal är: <b>{{responseData?.proportion}}</b>
+
+        </p>
+
+        <p>
+
+            Lägenhetens boyta är: <b>{{responseData?.residenceArea}}</b> kvm
+
+        </p>
+
+
+
+        <div class="container-print-input">
+
+            <p>_______________________________________________________________________________________________________________________________________
+
+            </p>
 
             <div class="row-element">
+
                 <div>
-                    <p>Är bostadsrättsföreningens fastighet fullvärdeförsäkrad</p>
+
+                    <p>
+
+                        Lägenhetens andel av föreningens lån
+
+                    </p>
+
+
+
                 </div>
-                <div style="display: flex;">
-                    <input type="checkbox">
-                    <span>Ja</span>
-                    <input type="checkbox">
-                    <span>Nej</span>
+
+                <div>
+
+                    <b>{{responseData?.proportionOfAssociationLoans | currency: 'KR/KVM '}}</b>
+
                 </div>
+
             </div>
 
-            <p>Har bostadsrättsföreningen en ansvarsförsäkring för styrelsen</p>
-            <p>Äger bostadsrättsföreningen marken</p>
-            <p>Har föreningen tomträtt</p>
             <p>
-                Om ja, när ska tomträttsavgälden omförhandlas: <b>{{radio1}}</b>
+
+                ≤3000 kr/kvm (låg)<br>
+
+                >3000≤6000 kr/kvm (låg till måttlig)<br>
+
+                >6000≤9000 kr/kvm (måttlig till hög)<br>
+
+                >9000 kr/kvm (hög)<br>
+
             </p>
+
+        </div>
+
+
+
+        <div class="container-print-input">
+
+            <p>_______________________________________________________________________________________________________________________________________
+
+            </p>
+
+            <div class="row-element">
+
+                <div>
+
+                    <p>
+
+                        Lägenhetens andel av bostadsrättsföreningens sparande
+
+                    </p>
+
+
+
+                </div>
+
+                <div>
+
+                    <b>{{responseData?.proportionOfAssociationSavings | currency: 'KR/KVM '}}</b>
+
+                </div>
+
+            </div>
+
             <p>
-                Bostadsrättsföreningens värdeår: <b>{{responseData?.proportionAmortization | currency: 'KR/KVM'}}</b>
-                kr/kvm
+
+                kr/kvm<br>
+
+                ≤100 kr/kvm (låg)<br>
+
+                >100≤150 kr/kvm (låg till måttlig)<br>
+
+                >150≤200 kr/kvm (måttlig till hög)<br>
+
+                >200 kr/kvm (hög)<br>
+
             </p>
+
+        </div>
+
+
+
+        <div class="container-print-input">
+
+            <p>_______________________________________________________________________________________________________________________________________
+
+            </p>
+
+            <div class="row-element">
+
+                <div>
+
+                    <p>
+
+                        Driftskostnad per kvm boyta
+
+                    </p>
+
+
+
+                </div>
+
+                <div>
+
+                    <b>{{responseData?.operatingCostSqm | currency: 'KR/KVM '}}</b>
+                    <!--kr/kvm --><br>
+
+                </div>
+
+            </div>
+
             <p>
-                Lägenhetens andelstal är: <b>ANDELSTAL</b>
+
+                ≤375 kr/kvm (låg)<br>
+
+                >375≤450 kr/kvm (låg till måttlig)<br>
+
+                >450≤550 kr/kvm (måttlig till hög)<br>
+
+                >550 kr/kvm (hög)<br>
+
             </p>
+
+        </div>
+
+
+
+        <div class="container-print-input">
+
+            <p>_______________________________________________________________________________________________________________________________________
+
+            </p>
+
+            <div class="row-element">
+
+                <div>
+
+                    <p>
+
+                        Hur mycket stiger månadsavgiften om räntan stiger med en procentenhet
+
+                    </p>
+
+
+
+                </div>
+
+                <div>
+
+                    <b>{{responseData?.interestRateOnePercent | currency: 'KR/KVM'}}</b>
+                    <!--kr/mån-->
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="container-print-input">
+
+            <p>_______________________________________________________________________________________________________________________________________
+
+            </p>
+
+            <div class="row-element">
+
+                <div>
+
+                    <p>
+
+                        Årsavgift per kvm boyta
+
+                    </p>
+
+
+
+                </div>
+
+                <div>
+
+                    <b>{{responseData?.annualFeeSqm | currency: 'KR/KVM '}}</b><br>
+
+                </div>
+
+            </div>
+
             <p>
-                Lägenhetens boyta är: <b>{{responseData?.residenceArea}}</b> kvm
-            </p>
-
-            <div class="container-print-input">
-                <p>_______________________________________________________________________________________________________________________________________
-                </p>
-                <div class="row-element">
-                    <div>
-                        <p>
-                            Lägenhetens andel av föreningens lån
-                        </p>
-
-                    </div>
-                    <div>
-                        <b>{{responseData?.proportionOfAssociationLoans | currency: 'KR/KVM '}}</b>
-                    </div>
-                </div>
-                <p>
-                    ≤3000 kr/kvm (låg)<br>
-                    >3000≤6000 kr/kvm (låg till måttlig)<br>
-                    >6000≤9000 kr/kvm (måttlig till hög)<br>
-                    >9000 kr/kvm (hög)<br>
-                </p>
-            </div>
-
-            <div class="container-print-input">
-                <p>_______________________________________________________________________________________________________________________________________
-                </p>
-                <div class="row-element">
-                    <div>
-                        <p>
-                            Lägenhetens andel av bostadsrättsföreningens sparande
-                        </p>
-
-                    </div>
-                    <div>
-                        <b>{{responseData?.proportionOfAssociationSavings | currency: 'KR/KVM '}}</b>
-                    </div>
-                </div>
-                <p>
-                    kr/kvm<br>
-                    ≤100 kr/kvm (låg)<br>
-                    >100≤150 kr/kvm (låg till måttlig)<br>
-                    >150≤200 kr/kvm (måttlig till hög)<br>
-                    >200 kr/kvm (hög)<br>
-                </p>
-            </div>
-
-            <div class="container-print-input">
-                <p>_______________________________________________________________________________________________________________________________________
-                </p>
-                <div class="row-element">
-                    <div>
-                        <p>
-                            Driftskostnad per kvm boyta
-                        </p>
-
-                    </div>
-                    <div>
-                        <b>{{responseData?.operatingCostSqm | currency: 'KR/KVM '}}</b> kr/kvm<br>
-                    </div>
-                </div>
-                <p>
-                    ≤375 kr/kvm (låg)<br>
-                    >375≤450 kr/kvm (låg till måttlig)<br>
-                    >450≤550 kr/kvm (måttlig till hög)<br>
-                    >550 kr/kvm (hög)<br>
-                </p>
-            </div>
-
-            <div class="container-print-input">
-                <p>_______________________________________________________________________________________________________________________________________
-                </p>
-                <div class="row-element">
-                    <div>
-                        <p>
-                            Hur mycket stiger månadsavgiften om räntan stiger med en procentenhet
-                        </p>
-
-                    </div>
-                    <div>
-                        <b>{{responseData?.interestRateOnePercent | currency: 'KR/KVM'}}</b> kr/mån
-                    </div>
-                </div>
-            </div>
-
-            <div class="container-print-input">
-                <p>_______________________________________________________________________________________________________________________________________
-                </p>
-                <div class="row-element">
-                    <div>
-                        <p>
-                            Årsavgift per kvm boyta
-                        </p>
-
-                    </div>
-                    <div>
-                        <b>{{responseData?.annualFeeSqm | currency: 'KR/KVM '}}</b><br>
-                    </div>
-                </div>
-                <p>
-                    ≤325 kr/kvm (låg)<br>
-                    >325≤650 kr/kvm (låg till måttlig)<br>
-                    >650≤900 kr/kvm (måttlig till hög)<br>
-                    >900 kr/kvm (hög)<br>
-                </p>
-            </div>
-
-            <div class="container-print-input">
-                <p>_______________________________________________________________________________________________________________________________________
-                </p>
-                <div class="row-element">
-                    <div>
-                        <p>
-                            Hur stor andel i procent av föreningens intäkter avser kommersiella lokaler
-                        </p>
-
-                    </div>
-                    <div>
-                        <b>{{responseData?.ratioCommercialRevenue | currency: 'KR/KVM'}}</b> %<br>
-                    </div>
-                </div>
-                <p>
-
-
-                    ≤5% (låg)<br>
-                    >5%≤15% (låg till måttlig)<br>
-                    >15%≤25% (måttlig till hög)<br>
-                    >25% (hög)<br>
-                </p>
-            </div>
-
-            <div class="container-print-input">
-                <p>_______________________________________________________________________________________________________________________________________
-                </p>
-                <div class="row-element">
-                    <div>
-                        <p>
-                            Lägenhetens andel av föreningens resultat
-                        </p>
-
-                    </div>
-                    <div>
-                        <b>{{responseData?.proportionResult | currency: 'KR/KVM' }}</b> kr/kvm
-                    </div>
-                </div>
-            </div>
-
-            <div class="container-print-input">
-                <p>_______________________________________________________________________________________________________________________________________
-                </p>
-                <div class="row-element">
-                    <div>
-                        <p>
-                            Lägenhetens andel av föreningens amorteringar
-                        </p>
-
-                    </div>
-                    <div>
-                        <b>{{responseData?.proportionAmortization | currency: 'KR/KVM '}}</b> kr/kvm
-                    </div>
-                </div>
-                <p>_______________________________________________________________________________________________________________________________________
-                </p>
-            </div>
         </div>
     </div>
 </div>
