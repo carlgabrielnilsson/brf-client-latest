@@ -138,7 +138,7 @@ export class BrfDashboardComponent implements OnInit {
 
       if (responseData.proportionOfAssociationLoans <= 3000) {
         this.ratioLoans.nativeElement.style.color = 'rgb(100, 192, 88)';
-        this.riskTextLoans.nativeElement.color = 'rgb(100, 192, 88)';
+        this.riskTextLoans.nativeElement.style.color = 'rgb(100, 192, 88)';
         this.riskTextLoans.nativeElement.innerText = 'Låg';
         this.progressLoans = "25";
         this.progressColor = "primary"
@@ -146,7 +146,7 @@ export class BrfDashboardComponent implements OnInit {
       else if (responseData.proportionOfAssociationLoans > 3000 && responseData.proportionOfAssociationLoans < 6000) {
 
         this.ratioLoans.nativeElement.style.color = 'rgb(97, 97, 192)';
-        this.riskTextLoans.nativeElement.color = 'rgb(97, 97, 192)';
+        this.riskTextLoans.nativeElement.style.color = 'rgb(97, 97, 192)';
         this.riskTextLoans.nativeElement.innerText = 'Låg till måttlig';
         this.progressLoans = "50";
         this.progressColor = "accent"
@@ -156,13 +156,13 @@ export class BrfDashboardComponent implements OnInit {
 
         this.ratioLoans.nativeElement.style.color = 'rgb(245, 137, 66)';
         this.riskTextLoans.nativeElement.innerText = 'Måttlig till hög';
-        this.riskTextLoans.nativeElement.color = 'rgb(245, 137, 66)';
+        this.riskTextLoans.nativeElement.style.color = 'rgb(245, 137, 66)';
         this.progressLoans = "75";
         this.progressColor = "accent"
       }
       else {
         this.ratioLoans.nativeElement.style.color = 'rgb(223, 52, 52)';
-        this.riskTextLoans.nativeElement.color = 'rgb(223, 52, 52)';
+        this.riskTextLoans.nativeElement.style.color = 'rgb(223, 52, 52)';
         this.riskTextLoans.nativeElement.innerText = 'Hög';
         this.progressLoans = "100";
         this.progressColor = "warn"
@@ -346,7 +346,5 @@ export class BrfDashboardComponent implements OnInit {
       'p { font-size: 1.2rem;}',
       '.row-element { display: flex; justify-content: space-between;}']
   }
-
-
 }
 
