@@ -145,7 +145,6 @@ mat-slider input {
     margin: 10px;
     height: 90%;
     width: 100%;
-
 }
 
 #card-group-one::-webkit-scrollbar {
@@ -307,15 +306,6 @@ mat-progress-bar {
     padding: var(--sw-pd4);
 }
 
-
-
-
-
-
-
-
-
-
 .modal-header {
     position: sticky;
     z-index: 100;
@@ -397,3 +387,4 @@ mat-progress-bar {
     height: 100%;
     padding-bottom: 30px;
 }
+
