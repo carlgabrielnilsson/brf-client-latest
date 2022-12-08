@@ -261,7 +261,7 @@
                 </div>
                 <div class="card-header">
                     <h2>Ditt måttband</h2>
-                    <mat-icon color="primary">square_foot</mat-icon>
+                    <mat-icon style="background-color: var(--sw-bg-primary); width: 40px; height: 40px; font-size: 40px; border-radius: 50%;">square_foot</mat-icon>
                 </div>
                 <p class="p-1">Se vad låg till hög innebär</p>
                 <div class="card-body list">
@@ -392,10 +392,8 @@
                             <p>Är bostadsrättsföreningens fastighet fullvärdeförsäkrad?</p>
                         </div>
                         <div style="display: flex; width: 100px; justify-content: space-between;">
-                            <input type="radio">
-                            <span style="margin-top: 7px;">Ja</span>
-                            <input type="radio">
-                            <span style="margin-top: 7px;">Nej</span>
+                            <p style="margin-top: 7px;" *ngIf="yes1.checked" >Ja</p>
+                            <p style="margin-top: 7px;"  *ngIf="no1.checked">Nej</p>
                         </div>
                     </div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
@@ -403,10 +401,8 @@
                             <p>Har bostadsrättsföreningen en ansvarsförsäkring för styrelsen?</p>
                         </div>
                         <div style="display: flex; width: 100px; justify-content: space-between;">
-                            <input type="radio">
-                            <span style="margin-top: 7px;">Ja</span>
-                            <input type="radio">
-                            <span style="margin-top: 7px;">Nej</span>
+                            <p style="margin-top: 7px;" *ngIf="yes2.checked" >Ja</p>
+                            <p style="margin-top: 7px;"  *ngIf="no2.checked">Nej</p>
                         </div>
                     </div>
                     <h2 class="bold-text-small">Mark & Upplåtelse</h2>
@@ -415,10 +411,8 @@
                             <p>Äger bostadsföreningen marken?</p>
                         </div>
                         <div style="display: flex; width: 100px; justify-content: space-between;">
-                            <input type="radio">
-                            <span style="margin-top: 7px;">Ja</span>
-                            <input type="radio">
-                            <span style="margin-top: 7px;">Nej</span>
+                            <p style="margin-top: 7px;" *ngIf="yes3.checked" >Ja</p>
+                            <p style="margin-top: 7px;"  *ngIf="no3.checked">Nej</p>
                         </div>
                     </div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
@@ -426,10 +420,8 @@
                             <p>Har föreningen tomträtt?</p>
                         </div>
                         <div style="display: flex; width: 100px; justify-content: space-between;">
-                            <input type="radio">
-                            <span style="margin-top: 7px;">Ja</span>
-                            <input type="radio">
-                            <span style="margin-top: 7px;">Nej</span>
+                            <p style="margin-top: 7px;" *ngIf="yes4.checked" >Ja</p>
+                            <p style="margin-top: 7px;"  *ngIf="no4.checked">Nej</p>
                         </div>
                     </div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
@@ -437,10 +429,8 @@
                             <p>Finns en teknisk underhållsplan?</p>
                         </div>
                         <div style="display: flex; width: 100px; justify-content: space-between;">
-                            <input type="radio">
-                            <span style="margin-top: 7px;">Ja</span>
-                            <input type="radio">
-                            <span style="margin-top: 7px;">Nej</span>
+                            <p style="margin-top: 7px;" *ngIf="yes5.checked">Ja</p>
+                            <p style="margin-top: 7px;"  *ngIf="no5.checked">Nej</p>
                         </div>
                     </div>
                     Om ja, när ska tomträttsavgälden omförhandlas: <b>{{radio1}}</b>
@@ -648,8 +638,10 @@
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="newCalculation">Brf Kalkyl</h5>
+                <div class="modal-header" style="display: flex; align-items: center; justify-content: space-between;">
+                    <div>
+                        <h5 class="modal-title bold-text-small mt-2" id="newCalculation">Brf Kalkyl</h5>
+                    </div>
                     <button mat-mini-fab type="button" color="warn" data-bs-dismiss="modal" aria-label="Close">
                         <mat-icon>close</mat-icon>
                     </button>
@@ -666,7 +658,7 @@
                                 </div>
                                 <mat-radio-group aria-label="Select an option">
                                     <mat-radio-button #yes1 color="primary" value="Ja">Ja</mat-radio-button>
-                                    <mat-radio-button #no1 color="primary" value="Ja">Nej</mat-radio-button>
+                                    <mat-radio-button #no1 color="primary" value="Nej">Nej</mat-radio-button>
                                 </mat-radio-group>
                                 <div class="description">
                                     <p>
@@ -678,8 +670,7 @@
                                     <mat-radio-button #no2 color="primary" value="Nej">Nej</mat-radio-button>
                                 </mat-radio-group>
                                 <div>
-                                    <button mat-button matStepperNext type="button">Nästa</button>
-                                    <button mat-button matStepperPrevious type="button">Tillbaka</button>
+                                    <button mat-button matStepperNext type="button" [disabled]="!yes1.checked && !no1.checked || !yes2.checked && !no2.checked ">Nästa</button>
                                 </div>
                             </mat-step>
 
@@ -713,7 +704,7 @@
                                 </mat-radio-group>
 
                                 <div>
-                                    <button mat-button matStepperNext type="button">Nästa</button>
+                                    <button mat-button matStepperNext type="button" [disabled]="!yes3.checked && !no3.checked || !yes4.checked && !no4.checked || !yes5.checked && !no5.checked ">Nästa</button>
                                     <button mat-button matStepperPrevious type="button">Tillbaka</button>
                                 </div>
                             </mat-step>
@@ -730,8 +721,9 @@
                                     <mat-form-field appearance="fill">
                                         <mat-label for="proportionArea">Lägenhetens andel</mat-label>
                                         <input #input1 matInput type="number" [(ngModel)]="brfParams.proportion"
-                                            name="proportion" id="proportion" min="0" max="1" step="0.01" required>
+                                            name="proportion" id="proportion" min="0" max="1" step="0.001" required>
                                     </mat-form-field>
+                                    <span  *ngIf="input1.value > '1'" style="margin-top: 10px; margin-bottom: 10px; color: rgb(248, 51, 51);">Andel av föreningen kan inte överstiga 1</span>
 
                                     <div class="description">
                                         <p>
@@ -756,7 +748,7 @@
                                 </div>
                                 <div>
                                     <button mat-button matStepperNext type="button"
-                                        [disabled]="!brfParams.monthlyFee || !brfParams.residenceArea || !brfParams.proportion">Nästa
+                                        [disabled]="!brfParams.monthlyFee || !brfParams.residenceArea || !brfParams.proportion || input1.value > '1'">Nästa
                                     </button>
                                     <button mat-button matStepperPrevious type="button">Tillbaka</button>
                                 </div>
@@ -813,7 +805,7 @@
 
                                 <div>
                                     <button mat-button matStepperNext type="button"
-                                        [disabled]="!brfParams.monthlyFee || !brfParams.residenceArea || !brfParams.proportion">Nästa
+                                        [disabled]="!brfParams.loans || !brfParams.amortization || !brfParams.depreciation || !brfParams.result">Nästa
                                     </button>
                                     <button mat-button matStepperPrevious type="button">Tillbaka</button>
                                 </div>
@@ -867,7 +859,7 @@
                                         name="capitalCosts" id="capitalCosts" min="0" required>
                                 </mat-form-field>
                                 <div>
-                                    <button mat-button matStepperNext type="button">Nästa</button>
+                                    <button mat-button matStepperNext type="button"  [disabled]="!brfParams.totalRevenue || !brfParams.commercialRevenue || !brfParams.miscellaneousCosts || !brfParams.capitalCosts">Nästa</button>
                                     <button mat-button matStepperPrevious type="button">Tillbaka</button>
                                 </div>
 
@@ -875,8 +867,7 @@
 
                             <mat-step id="finished">
                                 <ng-template matStepLabel>Beräkna</ng-template>
-                                <p>Kör uträkningar för din bostadsrättsförening</p>
-                                <div class="ml-2">
+                                <div class="buttons-calculate ml-2">
                                     <button mat-raised-button color="primary" type="submit" [disabled]="brfForm.invalid"
                                         data-bs-dismiss="modal">Beräkna</button>
                                     <button mat-raised-button color="accent" matStepperPrevious
