@@ -1,46 +1,39 @@
-<mat-toolbar>
-
-    <button mat-icon-button>
-        <mat-icon>menu</mat-icon>
-    </button>
-
-    <button mat-icon-button routerLink="/home">
-        <mat-icon aria-hidden="false" class="sidenav-link-icon" aria-label="Example home icon">
-            home
-        </mat-icon>
-    </button>
-
-    <button mat-icon-button routerLink="/brf-dashboard">
-        <mat-icon aria-hidden="false" class="sidenav-link-icon" aria-label="Example home icon">
-            dashboard
-        </mat-icon>
-    </button>
-    <button mat-icon-button routerLink="/feedback">
-        <mat-icon class="sidenav-link-icon" aria-hidden="false" aria-label="Example thumbs up SVG icon">
-            rate_review
-        </mat-icon>
-    </button>
-
-    <div class="header">
-        <h1>Checklista - köp av bostadsrätt</h1>
+<mat-toolbar class="justify-content-between">
+    <div>
+        <button mat-icon-button routerLink="/home">
+            <mat-icon aria-hidden="false" class="sidenav-link-icon" aria-label="Example home icon">
+                home
+            </mat-icon>
+        </button>
+    
+        <button mat-icon-button routerLink="/brf-dashboard">
+            <mat-icon aria-hidden="false" class="sidenav-link-icon" aria-label="Example home icon">
+                dashboard
+            </mat-icon>
+        </button>
+        <button mat-icon-button routerLink="/feedback">
+            <mat-icon class="sidenav-link-icon" aria-hidden="false" aria-label="Example thumbs up SVG icon">
+                rate_review
+            </mat-icon>
+        </button>
     </div>
-
-    <span class="spacer"></span>
-    <button mat-icon-button class="action" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <mat-icon> play_circle </mat-icon>
-    </button>
-    <button mat-icon-button class="action">
-        <mat-icon>
-            <span class="material-symbols-rounded">
-                language
-            </span>
-        </mat-icon>
-    </button>
-    <button mat-icon-button routerLink="faq">
-        <mat-icon aria-hidden="false" class="sidenav-link-icon" aria-label="Example home icon">
-            question_mark
-        </mat-icon>
-    </button>
+    <div>
+        <div class="header">
+            <h1 style="font-size: 1.8rem;">Checklista - köp av bostadsrätt</h1>
+        </div>
+    </div>
+    <div>
+        <button mat-icon-button class="action" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <mat-icon> play_circle </mat-icon>
+        </button>
+    
+        <button mat-icon-button routerLink="faq">
+            <mat-icon aria-hidden="false" class="sidenav-link-icon" aria-label="Example home icon">
+                question_mark
+            </mat-icon>
+        </button>
+    </div>    
+    
 </mat-toolbar>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

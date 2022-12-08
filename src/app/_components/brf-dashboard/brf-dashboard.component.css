@@ -38,6 +38,7 @@ hr {
     background: var(--sw-bg-white);
     border-radius: var(--sw-br4);
     box-shadow: var(--sw-bs-medium);
+   
 }
 
 .toolbar-content {
@@ -45,8 +46,12 @@ hr {
     height: 100%;
     width: 100%;
     padding: var(--sw-pd2);
+   
 }
-
+.mat-flat-button, .mat-raised-button, .mat-fab, .mat-mini-fab{
+    background-color: var(--sw-primary) !important;
+    
+}
 .spacer {
     flex: 1 1 auto;
 }

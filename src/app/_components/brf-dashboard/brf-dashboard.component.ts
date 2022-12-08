@@ -85,7 +85,7 @@ export class BrfDashboardComponent implements OnInit {
   showTicks = false;
   step = 1;
   thumbLabel = false;
-  value = 1;
+  value = 0;
   //Variables
   public responseData?: BrfParams;
   public brfParams: BrfParams = new BrfParams;
@@ -193,8 +193,8 @@ export class BrfDashboardComponent implements OnInit {
       else if (responseData.proportionOfAssociationSavings > 100 && responseData.proportionOfAssociationSavings < 150) {
 
         this.ratioSavings.nativeElement.style.color = 'rgb(245, 137, 66)';
-        this.riskTextSavings.nativeElement.innerText = 'Låg till måttlig';
         this.riskTextSavings.nativeElement.style.color = 'rgb(245, 137, 66)';
+        this.riskTextSavings.nativeElement.innerText = 'Låg till måttlig';
         this.progressSavings = "50";
         this.progressSavingsColor = "accent"
       }
@@ -209,7 +209,7 @@ export class BrfDashboardComponent implements OnInit {
         this.ratioSavings.nativeElement.style.color = 'rgb(100, 192, 88)';
         this.riskTextSavings.nativeElement.style.color = 'rgb(100, 192, 88)';
         this.riskTextSavings.nativeElement.innerText = 'Hög';
-        this.progressLoans = "100";
+        this.progressSavings = "100";
         this.progressSavingsColor = "primary"
       }
     }
