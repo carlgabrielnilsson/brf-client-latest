@@ -24,6 +24,7 @@
     "angular-highcharts": "^14.1.7",
     "bootstrap": "^5.2.3",
     "highcharts": "^10.3.2",
+    "ngx-print": "^1.2.1",
     "ngx-print-element": "^2.0.17",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

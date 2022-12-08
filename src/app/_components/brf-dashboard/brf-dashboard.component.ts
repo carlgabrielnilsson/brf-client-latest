@@ -335,18 +335,5 @@ export class BrfDashboardComponent implements OnInit {
     const thumbEle = document.querySelector('div.mat-slider-thumb-label');
     this.rendered.removeStyle(thumbEle, 'transform');
   }
-
-  public config = {
-    printMode: 'template-popup',
-    pageTitle: 'Brf Checklista',
-    stylesheets: [{ rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' }],
-    styles: [
-      'header, table, footer { margin: auto; text-align: center; }',
-      'h1 { font-size: 4rem;}',
-      'p { font-size: 1.2rem;}',
-      '.row-element { display: flex; justify-content: space-between;}']
-  }
-
-
 }
 
